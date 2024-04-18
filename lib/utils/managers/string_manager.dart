@@ -33,7 +33,7 @@ class StringsManager {
   static const String changePassword = 'Change password';
   static const String changeEmail = 'Change email';
   static const String measurment = 'Measurements';
-  static const String heightHint = 'Height';
+  static const String heightHint = 'Height (cm)';
   static const String weightHint = 'Weight';
   static const String genderHint = 'Gender';
   static const String genderManHint = 'MAN';
