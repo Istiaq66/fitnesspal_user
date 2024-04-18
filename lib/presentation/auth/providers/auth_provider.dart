@@ -6,6 +6,8 @@ import 'package:fitnesspal_user/utils/managers/style_manager.dart';
 import 'package:fitnesspal_user/utils/managers/value_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 class AuthProvider with ChangeNotifier {
   User? _user;
@@ -138,6 +140,10 @@ class AuthProvider with ChangeNotifier {
   }
 
   Future<void> signIn({required String email, required String password, required BuildContext context}) async {
+
+    // Dismiss the keyboard before showing the loading dialog
+    FocusScope.of(context).unfocus();
+
     showDialog(
         context: context,
         builder: (_) {
@@ -157,13 +163,13 @@ class AuthProvider with ChangeNotifier {
 
       // ignore: use_build_context_synchronously
       Navigator.pop(context);
-      debugPrint('==========================>>>');
       notifyListeners();
     } on FirebaseAuthException catch (e) {
-      debugPrint('==========================>>>Firebase error message: ${e.message}');
+
+      showTopSnackBar(Overlay.of(context), CustomSnackBar.error( message: "${e.message}",),);
+
       Future.delayed(const Duration(seconds: 2)).then(
         (value) {
-          debugPrint('==========================>>>$value');
           Navigator.pop(context);
           notifyListeners();
         },
@@ -171,11 +177,10 @@ class AuthProvider with ChangeNotifier {
     }
   }
 
-  Future<void> register({
-    required String email,
-    required String password,
-    required BuildContext context,
-  }) async {
+  Future<void> register({required String email,required String password,required BuildContext context,}) async {
+
+    // Dismiss the keyboard before showing the loading dialog
+    FocusScope.of(context).unfocus();
     showDialog(
       context: context,
       builder: (_) => Center(
