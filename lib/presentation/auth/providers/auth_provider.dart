@@ -161,7 +161,6 @@ class AuthProvider with ChangeNotifier {
         email: email,
         password: password,
       );
-      Navigator.of(context).pushReplacementNamed(Routes.authRoute);
       // ignore: use_build_context_synchronously
       Navigator.pop(context);
 
@@ -205,7 +204,6 @@ class AuthProvider with ChangeNotifier {
           .collection('users')
           .doc(credential.user!.uid)
           .set({});
-      Navigator.of(context).pushReplacementNamed(Routes.authRoute);
       notifyListeners();
     } on FirebaseAuthException catch (_) {
       Future.delayed(const Duration(seconds: 2)).then((value) {

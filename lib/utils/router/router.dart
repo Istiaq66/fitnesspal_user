@@ -19,11 +19,11 @@ import 'package:fitnesspal_user/presentation/workouts/pages/new_exercise_page.da
 import 'package:fitnesspal_user/utils/managers/string_manager.dart';
 
 class Routes {
-  static const String boardingRoute = '/';
+  static const String splashRoute = '/';
   static const String mainRoute = '/main';
   static const String loginRoute = '/login';
   static const String authRoute = '/auth';
-  static const String splashRoute = '/splash';
+  static const String boardingRoute = '/boarding';
   static const String notificationsRoute = '/notifications';
   static const String forgotPasswordRoute = '/forgotPassword';
   static const String changePasswordRoute = '/changePassword';

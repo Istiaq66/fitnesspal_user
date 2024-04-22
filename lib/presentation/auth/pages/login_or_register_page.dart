@@ -90,114 +90,118 @@ class _LoginPageState extends State<LoginPage>
 
     void onPressed() {
       if (isLoginView) {
-        signUserIn();
+        signUserIn().then((value) =>   Navigator.of(context).pushReplacementNamed(Routes.authRoute));
       } else if (isRegisterView) {
-        signUserUp();
+        signUserUp().then((value) =>   Navigator.of(context).pushReplacementNamed(Routes.authRoute));
       }
     }
 
-    return Scaffold(
-      backgroundColor: ColorManager.darkGrey,
-      body: SafeArea(
-        child: SingleChildScrollView(
-          child: Padding(
-            padding: const EdgeInsets.only(
-              top: PaddingManager.p12,
-            ),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.center,
-              children: [
-                Padding(
-                  padding: const EdgeInsets.only(bottom: PaddingManager.p8),
-                  child: SizedBox(
-                    width: SizeManager.s150.w,
-                    height: SizeManager.s150.h,
-                    child: Image.asset(
-                      ImageManager.logo,
-                    ),
-                  ),
+    return Consumer<AuthProvider>(
+        builder: (context, authProvider, _) {
+        return Scaffold(
+          backgroundColor: ColorManager.darkGrey,
+          body: SafeArea(
+            child: SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.only(
+                  top: PaddingManager.p12,
                 ),
-                Padding(
-                  padding: const EdgeInsets.only(bottom: PaddingManager.p8),
-                  child: Text(
-                    StringsManager.fitnessioABtitle,
-                    style: StyleManager.appbarTitleTextStyle,
-                  ),
-                ),
-                SizedBox(height: SizeManager.s100.h),
-                LoginOrRegisterView(
-                  emailController: _emailController,
-                  passwordController: _passwordController,
-                  isRegisterView: isRegisterView,
-                  repeatPasswordController: _repeatPasswordController,
-                ),
-                isLoginView
-                    ? Padding(
-                        padding: const EdgeInsets.only(
-                          right: PaddingManager.p28,
-                          left: PaddingManager.p28,
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: PaddingManager.p8),
+                      child: SizedBox(
+                        width: SizeManager.s150.w,
+                        height: SizeManager.s150.h,
+                        child: Image.asset(
+                          ImageManager.logo,
                         ),
-                        child: Align(
-                          alignment: Alignment.centerRight,
-                          child: GestureDetector(
-                            onTap: () {
-                              Navigator.of(context)
-                                  .pushNamed(Routes.forgotPasswordRoute);
-                            },
-                            child: Text(
-                              StringsManager.forgotPassword,
-                              style: StyleManager.loginPageSubTextTextStyle,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(bottom: PaddingManager.p8),
+                      child: Text(
+                        StringsManager.fitnessioABtitle,
+                        style: StyleManager.appbarTitleTextStyle,
+                      ),
+                    ),
+                    SizedBox(height: SizeManager.s100.h),
+                    LoginOrRegisterView(
+                      emailController: _emailController,
+                      passwordController: _passwordController,
+                      isRegisterView: isRegisterView,
+                      repeatPasswordController: _repeatPasswordController,
+                    ),
+                    isLoginView
+                        ? Padding(
+                            padding: const EdgeInsets.only(
+                              right: PaddingManager.p28,
+                              left: PaddingManager.p28,
+                            ),
+                            child: Align(
+                              alignment: Alignment.centerRight,
+                              child: GestureDetector(
+                                onTap: () {
+                                  Navigator.of(context)
+                                      .pushNamed(Routes.forgotPasswordRoute);
+                                },
+                                child: Text(
+                                  StringsManager.forgotPassword,
+                                  style: StyleManager.loginPageSubTextTextStyle,
+                                ),
+                              ),
+                            ),
+                          )
+                        : Container(),
+                    Padding(
+                      padding: const EdgeInsets.only(top: PaddingManager.p2),
+                      child: LimeGreenRoundedButtonWidget(
+                        onTap: onPressed,
+                        title: isLoginView
+                            ? StringsManager.signIn
+                            : StringsManager.signUp,
+                      ),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(
+                        left: PaddingManager.p28,
+                        right: PaddingManager.p28,
+                        top: PaddingManager.p18,
+                      ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          Text(
+                            isLoginView
+                                ? StringsManager.dontHaveAcc
+                                : StringsManager.haveAcc,
+                            style: StyleManager.loginPageSubTextTextStyle,
+                          ),
+                          Padding(
+                            padding: const EdgeInsets.only(left: PaddingManager.p8),
+                            child: GestureDetector(
+                              onTap: _switchAuthMode,
+                              child: Text(
+                                isLoginView
+                                    ? StringsManager.signUp
+                                    : StringsManager.signIn,
+                                style:
+                                    StyleManager.loginPageSubButtonSmallTextStyle,
+                              ),
                             ),
                           ),
-                        ),
-                      )
-                    : Container(),
-                Padding(
-                  padding: const EdgeInsets.only(top: PaddingManager.p2),
-                  child: LimeGreenRoundedButtonWidget(
-                    onTap: onPressed,
-                    title: isLoginView
-                        ? StringsManager.signIn
-                        : StringsManager.signUp,
-                  ),
-                ),
-                Padding(
-                  padding: const EdgeInsets.only(
-                    left: PaddingManager.p28,
-                    right: PaddingManager.p28,
-                    top: PaddingManager.p18,
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        isLoginView
-                            ? StringsManager.dontHaveAcc
-                            : StringsManager.haveAcc,
-                        style: StyleManager.loginPageSubTextTextStyle,
+                        ],
                       ),
-                      Padding(
-                        padding: const EdgeInsets.only(left: PaddingManager.p8),
-                        child: GestureDetector(
-                          onTap: _switchAuthMode,
-                          child: Text(
-                            isLoginView
-                                ? StringsManager.signUp
-                                : StringsManager.signIn,
-                            style:
-                                StyleManager.loginPageSubButtonSmallTextStyle,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ],
-            ).animate().fadeIn(duration: 500.ms),
+                    ),
+                  ],
+                ).animate().fadeIn(duration: 500.ms),
+              ),
+            ),
           ),
-        ),
-      ),
+        );
+      }
     );
   }
 }

@@ -34,11 +34,7 @@ class _SplashScreenState extends State<SplashScreen> {
             Routes.boardingRoute,
           );
         } else {
-            if(event == null){
-              Navigator.of(context).pushReplacementNamed(Routes.loginRoute);
-           } else {
-              Navigator.of(context).pushReplacementNamed(Routes.mainRoute);
-          }
+          Navigator.of(context).pushReplacementNamed(Routes.authRoute);
         }
       });
     });

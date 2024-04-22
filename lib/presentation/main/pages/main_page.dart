@@ -1,4 +1,6 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:fitnesspal_user/presentation/auth/providers/auth_provider.dart';
+import 'package:fitnesspal_user/presentation/settings/providers/settings_provider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -139,24 +141,32 @@ class _MainPageState extends State<MainPage> {
         size: SizeManager.s28,
       ),
     ];
-    return Scaffold(
-      backgroundColor: ColorManager.darkGrey,
-      appBar: PreferredSize(
-        preferredSize: Size(
-          double.infinity,
-          isProfilePage ? SizeManager.s0 : SizeManager.s60.h,
-        ),
-        child: appBar(),
-      ),
-      bottomNavigationBar: CurvedNavigationBar(
-        color: ColorManager.black87,
-        buttonBackgroundColor: Colors.transparent,
-        backgroundColor: ColorManager.darkGrey,
-        onTap: ontap,
-        index: _currentIndex,
-        items: bottomNavItems,
-      ),
-      body: pages[_currentIndex].animate().fadeIn(duration: 500.ms),
+    return Consumer<AuthProvider>(
+        builder: (context, authProvider, _) {
+        return Consumer<SettingsProvider>(
+            builder: (context, settingProvider, _) {
+            return Scaffold(
+              backgroundColor: ColorManager.darkGrey,
+              appBar: PreferredSize(
+                preferredSize: Size(
+                  double.infinity,
+                  isProfilePage ? SizeManager.s0 : SizeManager.s60.h,
+                ),
+                child: appBar(),
+              ),
+              bottomNavigationBar: CurvedNavigationBar(
+                color: ColorManager.black87,
+                buttonBackgroundColor: Colors.transparent,
+                backgroundColor: ColorManager.darkGrey,
+                onTap: ontap,
+                index: _currentIndex,
+                items: bottomNavItems,
+              ),
+              body: pages[_currentIndex].animate().fadeIn(duration: 500.ms),
+            );
+          }
+        );
+      }
     );
   }
 }
