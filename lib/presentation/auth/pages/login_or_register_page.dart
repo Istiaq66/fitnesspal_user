@@ -13,7 +13,7 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 
-enum AuthMode { signUp, signIn }
+enum AuthMode {signUp, signIn }
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});

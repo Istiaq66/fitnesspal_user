@@ -4,6 +4,7 @@ import 'package:fitnesspal_user/utils/managers/color_manager.dart';
 import 'package:fitnesspal_user/utils/managers/string_manager.dart';
 import 'package:fitnesspal_user/utils/managers/style_manager.dart';
 import 'package:fitnesspal_user/utils/managers/value_manager.dart';
+import 'package:fitnesspal_user/utils/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';
@@ -160,9 +161,10 @@ class AuthProvider with ChangeNotifier {
         email: email,
         password: password,
       );
-
+      Navigator.of(context).pushReplacementNamed(Routes.authRoute);
       // ignore: use_build_context_synchronously
       Navigator.pop(context);
+
       notifyListeners();
     } on FirebaseAuthException catch (e) {
 
@@ -203,7 +205,7 @@ class AuthProvider with ChangeNotifier {
           .collection('users')
           .doc(credential.user!.uid)
           .set({});
-
+      Navigator.of(context).pushReplacementNamed(Routes.authRoute);
       notifyListeners();
     } on FirebaseAuthException catch (_) {
       Future.delayed(const Duration(seconds: 2)).then((value) {

@@ -1,10 +1,8 @@
 
 import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:fitness/view/Authentication/LoginScreen/login_view.dart';
-import 'package:fitness/view/dashboard/navigator.dart';
-import 'package:fitness/view/home/home_view.dart';
-import 'package:fitness/view/on_boarding/started_view.dart';
+import 'package:fitnesspal_user/utils/managers/asset_manager.dart';
+import 'package:fitnesspal_user/utils/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -30,28 +28,16 @@ class _SplashScreenState extends State<SplashScreen> {
     sharedPreferences = await SharedPreferences.getInstance();
     Future.delayed(const Duration(seconds: 5), () {
       user.authStateChanges().listen((event) {
-        if (event == null && mounted && !sharedPreferences.containsKey('intro')) {
+        if (!sharedPreferences.containsKey('intro')) {
           sharedPreferences.setBool('intro', true);
-          Navigator.pushAndRemoveUntil(
-              context,
-              MaterialPageRoute(builder: (_) => const StartedView()),
-                  (route) => false);
+          Navigator.of(context).pushReplacementNamed(
+            Routes.boardingRoute,
+          );
         } else {
-          if (user.currentUser?.email == "istiaq66@gmail.com") {
-            Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (_) => const BottomNavBar()),
-                    (route) => false);
-          }else if(sharedPreferences.containsKey('intro') && sharedPreferences.getBool('intro')!){
-            Navigator.push(
-                context,
-                MaterialPageRoute(
-                    builder: (context) => const LoginView()));
-          } else {
-            Navigator.pushAndRemoveUntil(
-                context,
-                MaterialPageRoute(builder: (_) => HomeView()),
-                    (route) => false);
+            if(event == null){
+              Navigator.of(context).pushReplacementNamed(Routes.loginRoute);
+           } else {
+              Navigator.of(context).pushReplacementNamed(Routes.mainRoute);
           }
         }
       });
@@ -60,7 +46,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.sizeOf(context);
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       backgroundColor: Colors.white,
       body: Center(
@@ -69,7 +55,7 @@ class _SplashScreenState extends State<SplashScreen> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             Image.asset(
-              "assets/logo.png",
+              ImageManager.logo,
               width: size.width * 0.8,
             ),
           ],

@@ -1,3 +1,4 @@
+import 'package:fitnesspal_user/presentation/splash/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:fitnesspal_user/presentation/auth/pages/add_data_page.dart';
 import 'package:fitnesspal_user/presentation/auth/pages/auth_page.dart';
@@ -22,6 +23,7 @@ class Routes {
   static const String mainRoute = '/main';
   static const String loginRoute = '/login';
   static const String authRoute = '/auth';
+  static const String splashRoute = '/splash';
   static const String notificationsRoute = '/notifications';
   static const String forgotPasswordRoute = '/forgotPassword';
   static const String changePasswordRoute = '/changePassword';
@@ -39,6 +41,8 @@ class Routes {
 class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings routeSettings) {
     switch (routeSettings.name) {
+      case Routes.splashRoute:
+        return MaterialPageRoute(builder: (_) => const SplashScreen());
       case Routes.boardingRoute:
         return MaterialPageRoute(builder: (_) => const BoardingPage());
       case Routes.mainRoute:
@@ -69,8 +73,6 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const ChangeWeightPage());
       case Routes.subscription:
         return MaterialPageRoute(builder: (_) => const SubscriptionPage());
-
-
       case Routes.changeMeasurementsRoute:
         return MaterialPageRoute(
             builder: (_) => const ChangeMeasurementsPage());
