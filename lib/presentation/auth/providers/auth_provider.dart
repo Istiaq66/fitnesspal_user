@@ -4,7 +4,6 @@ import 'package:fitnesspal_user/utils/managers/color_manager.dart';
 import 'package:fitnesspal_user/utils/managers/string_manager.dart';
 import 'package:fitnesspal_user/utils/managers/style_manager.dart';
 import 'package:fitnesspal_user/utils/managers/value_manager.dart';
-import 'package:fitnesspal_user/utils/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_spinkit/flutter_spinkit.dart';
 import 'package:top_snackbar_flutter/custom_snack_bar.dart';

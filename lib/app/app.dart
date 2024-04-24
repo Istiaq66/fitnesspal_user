@@ -10,9 +10,9 @@ import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
 
 class MyApp extends StatefulWidget {
-  MyApp._internal();
-  int appState = 0;
-  static final MyApp instance = MyApp._internal();
+  const MyApp._internal();
+  // int appState = 0;
+  static const MyApp instance = MyApp._internal();
 
   factory MyApp() => instance;
 

@@ -40,6 +40,7 @@ class Routes {
 
 class RouteGenerator {
   static Route<dynamic> getRoute(RouteSettings routeSettings) {
+    debugPrint('===> Route: ${routeSettings.name}');
     switch (routeSettings.name) {
       case Routes.splashRoute:
         return MaterialPageRoute(builder: (_) => const SplashScreen());

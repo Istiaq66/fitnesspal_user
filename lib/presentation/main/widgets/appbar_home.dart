@@ -37,6 +37,7 @@ class HomePageAppBarWidget extends StatelessWidget {
                     onPressed: () {
                       //TODO:::
                     },
+                    padding: EdgeInsets.zero,
                     icon: const Icon(
                       Icons.notifications_none_sharp,
                       size: SizeManager.s26,

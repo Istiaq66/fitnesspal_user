@@ -241,7 +241,7 @@ class FitnessDataWidget extends StatelessWidget {
                                 ),
                               ),
                               Container(
-                                width: (deviceWidth / 3 - 16).w,
+                                // width: (deviceWidth / 3 - 10).w,
                                 height: SizeManager.s100.h,
                                 decoration: BoxDecoration(
                                   color: ColorManager.black87,

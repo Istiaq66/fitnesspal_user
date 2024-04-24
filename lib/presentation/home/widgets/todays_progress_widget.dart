@@ -16,7 +16,7 @@ class TodaysProgressWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final deviceWidth = MediaQuery.of(context).size.width;
+    // final deviceWidth = MediaQuery.of(context).size.width;
     return Consumer<WorkoutProvider>(builder: (context, workoutProvider, _) {
       var isLoaded = workoutProvider.progressPercent == null ||
           workoutProvider.shownPercent == null ||
@@ -76,7 +76,7 @@ class TodaysProgressWidget extends StatelessWidget {
             right: PaddingManager.p12,
           ),
           child: Container(
-            width: deviceWidth,
+            // width: deviceWidth,
             decoration: BoxDecoration(
               color: ColorManager.black87,
               borderRadius: BorderRadius.circular(
@@ -91,31 +91,33 @@ class TodaysProgressWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          top: PaddingManager.p12,
-                          right: PaddingManager.p20,
-                          left: PaddingManager.p20,
+                  Expanded(
+                    child: Column(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            top: PaddingManager.p12,
+                            // right: PaddingManager.p20,
+                            left: PaddingManager.p20,
+                          ),
+                          child: Text(
+                            StringsManager.todaysProg,
+                            style: StyleManager.homePageTodaysProgressTextSTyle,
+                            textAlign: TextAlign.left,
+                          ),
                         ),
-                        child: Text(
-                          StringsManager.todaysProg,
-                          style: StyleManager.homePageTodaysProgressTextSTyle,
-                          textAlign: TextAlign.left,
-                        ),
-                      ),
-                      Padding(
-                        padding: const EdgeInsets.only(
-                          top: PaddingManager.p12,
-                          right: PaddingManager.p20,
-                          left: PaddingManager.p20,
-                        ),
-                        child: subText(workoutProvider, exercisesLeft),
-                      )
-                    ],
+                        Padding(
+                          padding: const EdgeInsets.only(
+                            top: PaddingManager.p12,
+                            // right: PaddingManager.p20,
+                            left: PaddingManager.p20,
+                          ),
+                          child: subText(workoutProvider, exercisesLeft),
+                        )
+                      ],
+                    ),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(

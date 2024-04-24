@@ -21,20 +21,22 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    route();
+    route(context);
   }
 
-  Future<void> route() async {
+  Future<void> route(BuildContext context) async {
     sharedPreferences = await SharedPreferences.getInstance();
     Future.delayed(const Duration(seconds: 5), () {
-      user.authStateChanges().listen((event) {
+      user.authStateChanges().listen((event) async {
         if (!sharedPreferences.containsKey('intro')) {
-          sharedPreferences.setBool('intro', true);
-          Navigator.of(context).pushReplacementNamed(
-            Routes.boardingRoute,
-          );
+          await sharedPreferences.setBool('intro', true);
+          if(mounted) {
+            Navigator.of(context).pushReplacementNamed(Routes.boardingRoute);
+          }
         } else {
-          Navigator.of(context).pushReplacementNamed(Routes.authRoute);
+          if(mounted) {
+            Navigator.of(context).pushReplacementNamed(Routes.authRoute);
+          }
         }
       });
     });
