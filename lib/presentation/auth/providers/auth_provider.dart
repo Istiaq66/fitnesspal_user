@@ -162,7 +162,12 @@ class AuthProvider with ChangeNotifier {
       );
       // ignore: use_build_context_synchronously
       Navigator.pop(context);
-
+      showTopSnackBar(
+        Overlay.of(context),
+        const CustomSnackBar.success(
+          message: "Login Successfully",
+        ),
+      );
       notifyListeners();
     } on FirebaseAuthException catch (e) {
 
@@ -199,6 +204,12 @@ class AuthProvider with ChangeNotifier {
       );
       // ignore: use_build_context_synchronously
       Navigator.pop(context);
+      showTopSnackBar(
+        Overlay.of(context),
+        const CustomSnackBar.success(
+          message: "Registered Successfully",
+        ),
+      );
       await FirebaseFirestore.instance
           .collection('users')
           .doc(credential.user!.uid)
@@ -253,6 +264,12 @@ class AuthProvider with ChangeNotifier {
         'thigh': 0.0,
         'calf': 0.0,
       });
+      showTopSnackBar(
+        Overlay.of(context),
+        const CustomSnackBar.success(
+          message: "User data added successfully",
+        ),
+      );
       notifyListeners();
     } catch (e) {
       rethrow;
