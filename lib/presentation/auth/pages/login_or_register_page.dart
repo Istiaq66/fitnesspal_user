@@ -90,9 +90,9 @@ class _LoginPageState extends State<LoginPage>
 
     void onPressed() {
       if (isLoginView) {
-        signUserIn().then((value) =>   Navigator.of(context).pushReplacementNamed(Routes.authRoute));
+        signUserIn();
       } else if (isRegisterView) {
-        signUserUp().then((value) =>   Navigator.of(context).pushReplacementNamed(Routes.authRoute));
+        signUserUp();
       }
     }
 
