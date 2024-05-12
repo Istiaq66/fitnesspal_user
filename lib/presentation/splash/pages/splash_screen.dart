@@ -29,10 +29,10 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(const Duration(seconds: 5), () {
       user.authStateChanges().listen((event) async {
         if (!sharedPreferences.containsKey('intro')) {
-          await sharedPreferences.setBool('intro', true);
           if(mounted) {
             Navigator.of(context).pushReplacementNamed(Routes.boardingRoute);
           }
+          await sharedPreferences.setBool('intro', true);
         } else {
           if(mounted) {
             Navigator.of(context).pushReplacementNamed(Routes.authRoute);
