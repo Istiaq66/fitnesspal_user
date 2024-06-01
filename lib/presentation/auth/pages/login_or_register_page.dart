@@ -11,6 +11,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 
 enum AuthMode {signUp, signIn }
@@ -43,8 +45,7 @@ class _LoginPageState extends State<LoginPage>
   }
 
   bool get isEmailNotEmpty => _emailController.text.isNotEmpty;
-  bool get isPasswordConfirmed =>
-      _passwordController == _repeatPasswordController;
+  bool get isPasswordConfirmed => _passwordController == _repeatPasswordController;
   bool get isRegisterView => _authMode == AuthMode.signUp;
   bool get isLoginView => _authMode == AuthMode.signIn;
 
@@ -89,10 +90,26 @@ class _LoginPageState extends State<LoginPage>
     }
 
     void onPressed() {
-      if (isLoginView) {
-        signUserIn();
-      } else if (isRegisterView) {
-        signUserUp();
+      if(_emailController.text.isEmpty){
+        showTopSnackBar(
+          Overlay.of(context),
+          const CustomSnackBar.error(
+            message: "Your email address is empty!",
+          ),
+        );
+      }else if(_passwordController.text.isEmpty){
+        showTopSnackBar(
+          Overlay.of(context),
+          const CustomSnackBar.error(
+            message: "Your password is empty!",
+          ),
+        );
+      }else{
+        if (isLoginView) {
+          signUserIn();
+        } else if (isRegisterView) {
+          signUserUp();
+        }
       }
     }
 
