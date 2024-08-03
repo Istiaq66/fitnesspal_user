@@ -11,6 +11,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:lottie/lottie.dart';
 import 'package:provider/provider.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 class DrinkPage extends StatefulWidget {
   const DrinkPage({super.key});
@@ -21,7 +23,7 @@ class DrinkPage extends StatefulWidget {
 
 class _DrinkPageState extends State<DrinkPage> {
   final TextEditingController _drinkController = TextEditingController();
-
+  late ConsumptionProvider consumptionProvider;
   @override
   void dispose() {
     _drinkController.dispose();
@@ -29,33 +31,39 @@ class _DrinkPageState extends State<DrinkPage> {
   }
 
   @override
+  void didChangeDependencies() {
+    super.didChangeDependencies();
+    consumptionProvider = Provider.of<ConsumptionProvider>(context, listen: false);
+  }
+
+  addCustomWater() {
+    try {
+      consumptionProvider.addWater(
+        amount: double.parse(_drinkController.text),
+        dateTime: DateTime.now(),
+      ).then((value) => showTopSnackBar(
+          Overlay.of(context), const CustomSnackBar.success(message: "Water Consumption Added Successfully",)
+      ));
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  addFixedWater({required double amount}) {
+    try {
+      consumptionProvider.addWater(
+        amount: amount,
+        dateTime: DateTime.now(),
+      ).then((value) => showTopSnackBar(
+          Overlay.of(context), const CustomSnackBar.success(message: "Water Consumption Added Successfully",)
+      ));
+    } catch (e) {
+      rethrow;
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
-    final consumptionProvider =
-        Provider.of<ConsumptionProvider>(context, listen: false);
-    addCustomWater() {
-      try {
-        consumptionProvider.addWater(
-          amount: double.parse(_drinkController.text),
-          dateTime: DateTime.now(),
-        );
-        Navigator.of(context).pop();
-      } catch (e) {
-        rethrow;
-      }
-    }
-
-    addFixedWater({required double amount}) {
-      try {
-        consumptionProvider.addWater(
-          amount: amount,
-          dateTime: DateTime.now(),
-        );
-        Navigator.of(context).pop();
-      } catch (e) {
-        rethrow;
-      }
-    }
-
     return Scaffold(
       appBar: AppBar(
         title: Text(
