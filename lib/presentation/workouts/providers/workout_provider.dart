@@ -6,6 +6,7 @@ import 'package:fitnesspal_user/model/workout_model.dart';
 class WorkoutProvider with ChangeNotifier {
   final List<WorkoutModel> _workouts = [];
   final List<WorkoutModel> _finishedWorkouts = [];
+  final List<WorkoutModel> _heatMapData = [];
   final List<WorkoutModel> _allWorkouts = [];
   double? progressPercent;
   int? exercisesLeft;
@@ -17,6 +18,13 @@ class WorkoutProvider with ChangeNotifier {
 
   List<WorkoutModel> get finishedWourkouts {
     return [..._finishedWorkouts];
+  }
+
+  Map<DateTime, int> get heatMapData {
+    return {
+      for (var data in _heatMapData)
+        DateTime(data.dateTime.year, data.dateTime.month, data.dateTime.day) : data.setNumber
+    };
   }
 
   List<WorkoutModel> get allWorkouts {
@@ -70,7 +78,6 @@ class WorkoutProvider with ChangeNotifier {
 
   Future fetchAndSetWorkouts() async {
     User? user = FirebaseAuth.instance.currentUser;
-
     try {
       final workoutSnapshot = await FirebaseFirestore.instance
           .collection('workouts')
@@ -87,10 +94,16 @@ class WorkoutProvider with ChangeNotifier {
           .doc(user.uid)
           .collection('finishedWorkoutsData')
           .get();
+      final heatMapSnapShot = await FirebaseFirestore.instance
+          .collection('heatmap')
+          .doc(user.uid)
+          .collection('heatMapData')
+          .get();
 
       final List<WorkoutModel> loadedWorkouts = [];
       final List<WorkoutModel> allworkoutsLoaded = [];
       final List<WorkoutModel> loadedFinishedWorkouts = [];
+      final List<WorkoutModel> loadedHeatMapData = [];
 
       for (var doc in workoutSnapshot.docs) {
         final workoutData = doc.data();
@@ -129,6 +142,20 @@ class WorkoutProvider with ChangeNotifier {
           ),
         );
       }
+
+      for (var doc in heatMapSnapShot.docs) {
+        final heatMapData = doc.data();
+        loadedHeatMapData.add(
+          WorkoutModel(
+            id: doc.id,
+            name: heatMapData['name'],
+            repNumber: heatMapData['repNumber'],
+            setNumber: heatMapData['setNumber'],
+            dateTime: (heatMapData['dateTime'] as Timestamp).toDate(),
+          ),
+        );
+      }
+
       loadedWorkouts.sort((a, b) => b.dateTime.compareTo(a.dateTime));
       _workouts.clear();
       _workouts.addAll(loadedWorkouts);
@@ -136,6 +163,8 @@ class WorkoutProvider with ChangeNotifier {
       _allWorkouts.addAll(allworkoutsLoaded);
       _finishedWorkouts.clear();
       _finishedWorkouts.addAll(loadedFinishedWorkouts);
+      _heatMapData.clear();
+      _heatMapData.addAll(loadedHeatMapData);
 
       notifyListeners();
     } catch (e) {
@@ -189,6 +218,22 @@ class WorkoutProvider with ChangeNotifier {
             }
           }
         });
+
+        await FirebaseFirestore.instance
+            .collection('heatmap')
+            .doc(user.uid)
+            .collection('heatMapData')
+            .get()
+            .then((heatMapSnapShot) {
+          for (var doc in heatMapSnapShot.docs) {
+            DateTime heatMapDateTime = (doc['dateTime'] as Timestamp).toDate();
+            if (isLastYearDifferent(now, heatMapDateTime)) {
+              doc.reference.delete();
+            }
+          }
+        });
+
+
       } catch (e) {
         rethrow;
       }
@@ -205,6 +250,10 @@ class WorkoutProvider with ChangeNotifier {
     return now.year != workoutDateTime.year ||
         now.month != workoutDateTime.month ||
         now.day != workoutDateTime.day;
+  }
+
+  bool isLastYearDifferent(DateTime now, DateTime lastDateTime) {
+    return now.year != lastDateTime.year;
   }
 
   Future<void> deleteWorkout({required String workoutID}) async {
@@ -262,6 +311,20 @@ class WorkoutProvider with ChangeNotifier {
         'dateTime': dateTime,
         'id': workoutID,
       });
+
+      await FirebaseFirestore.instance
+          .collection('heatmap')
+          .doc(user.uid)
+          .collection('heatMapData')
+          .doc()
+          .set({
+        'name': name,
+        'repNumber': repNumber,
+        'setNumber': setNumber,
+        'dateTime': dateTime,
+        'id': workoutID,
+      });
+
       notifyListeners();
     } catch (e) {
       notifyListeners();

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_heatmap_calendar/flutter_heatmap_calendar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
 import 'package:provider/provider.dart';
@@ -31,8 +32,16 @@ class _WorkoutPageState extends State<WorkoutPage> {
 
   @override
   Widget build(BuildContext context) {
+
+    // DateTime now = DateTime.now();
+    // DateTime startOfMonth = DateTime(now.year, now.month, 1);
+    // DateTime startOfNextMonth = DateTime(now.year, now.month + 1, 1);
+    // DateTime endOfMonth = startOfNextMonth.subtract(const Duration(days: 1));
+
+
     return Consumer<WorkoutProvider>(
-      builder: (context, workoutsProvider, _) => SafeArea(
+      builder: (context, workoutsProvider, _) =>
+          SafeArea(
         child: LiquidPullToRefresh(
           height: SizeManager.s250.h,
           color: ColorManager.darkGrey,
@@ -46,8 +55,29 @@ class _WorkoutPageState extends State<WorkoutPage> {
                 children: [
                   Column(
                     mainAxisAlignment: MainAxisAlignment.start,
-                    crossAxisAlignment: CrossAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
+                      HeatMap(
+                        datasets: workoutsProvider.heatMapData,
+                        colorMode: ColorMode.opacity,
+                        startDate: DateTime.now().subtract(const Duration(days: 45)),
+                        endDate:  DateTime.now().add(const Duration(days: 45)),
+                        showText: false,
+                        scrollable: true,
+                        textColor: Colors.white,
+                        colorsets: const {
+                        1 : Color.fromARGB(20, 2, 179, 8),
+                        2 : Color.fromARGB(40, 2, 179, 8),
+                        3 : Color.fromARGB(60, 2, 179, 8),
+                        4 : Color.fromARGB(80, 2, 179, 8),
+                        5 : Color.fromARGB(100, 2, 179, 8),
+                        6 : Color.fromARGB(120, 2, 179, 8),
+                        7 : Color.fromARGB(150, 2, 179, 8),
+                        8 : Color.fromARGB(180, 2, 179, 8),
+                        9 : Color.fromARGB(220, 2, 179, 8),
+                        10 : Color.fromARGB(255, 2, 179, 8),
+                        },
+                      ),
                       Align(
                         alignment: Alignment.topCenter,
                         child: NewExerciseButton(
