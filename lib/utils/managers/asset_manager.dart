@@ -12,10 +12,10 @@ class ImageManager {
   static const logo = '$imagePath/logo.png';
   static const fork = '$imagePath/fork.png';
   static const carousel1WP = '$imagePath/carousel1.webp';
-  static const carousel2WP = '$imagePath/carousel2.webp';
+  static const carousel2WP = '$imagePath/carousel2.jpg';
   static const carousel3WP = '$imagePath/carousel3.webp';
-  static const carousel4WP = '$imagePath/carousel4.webp';
-  static const carousel5WP = '$imagePath/carousel5.webp';
+  static const carousel4WP = '$imagePath/carousel4.jpg';
+  static const carousel5WP = '$imagePath/carousel5.jpg';
   static const man = '$imagePath/man.webp';
   static const woman = '$imagePath/woman.webp';
   static const weightIc = '$imagePath/weight_ic.png';

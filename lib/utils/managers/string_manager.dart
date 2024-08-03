@@ -211,4 +211,12 @@ class StringsManager {
   static const String declineBenchPressBarBell = 'Decline Bench Press(Barbell)';
   static const String declineBenchPressDumBell = 'Decline Bench Press(Dumbell)';
   static const String declineBenchPressMachine = 'Decline Bench Press(Machine)';
+
+
+  ///--URLS--//
+  static const String strengthUrl = 'https://www.youtube.com/watch?v=L_JhT5X7its&ab_channel=MedicalCentric';
+  static const String yogaUrl = 'https://www.youtube.com/watch?v=B4kNiCWTl7M&ab_channel=BreatheandFlow';
+  static const String confidenceUrl = 'https://www.youtube.com/watch?v=rA3Lh9rrbeU&ab_channel=MindPumpShow';
+  static const String powerUrl = 'https://www.youtube.com/watch?v=37UhELFvPec&ab_channel=TEDxTalks';
+  static const String meditationUrl = 'https://www.youtube.com/watch?v=fz57mdSPgMI&t=81s&ab_channel=TEDxTalks';
 }

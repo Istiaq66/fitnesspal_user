@@ -4,6 +4,8 @@ import 'package:fitnesspal_user/presentation/home/widgets/carousel_home_box.dart
 import 'package:fitnesspal_user/utils/managers/asset_manager.dart';
 import 'package:fitnesspal_user/utils/managers/string_manager.dart';
 
+import 'package:url_launcher/url_launcher.dart' as url_launcher;
+
 class CarouselSliderHomeWidget extends StatelessWidget {
   const CarouselSliderHomeWidget({
     super.key,
@@ -18,7 +20,7 @@ class CarouselSliderHomeWidget extends StatelessWidget {
           deviceWidth: deviceWidth,
           image: ImageManager.carousel1WP,
           onTap: () {
-            //TODO
+            url_launcher.launch(StringsManager.strengthUrl);
           },
           title: StringsManager.strengh,
         ),
@@ -26,7 +28,7 @@ class CarouselSliderHomeWidget extends StatelessWidget {
           deviceWidth: deviceWidth,
           image: ImageManager.carousel2WP,
           onTap: () {
-            //TODO
+            url_launcher.launch(StringsManager.yogaUrl);
           },
           title: StringsManager.yoga,
         ),
@@ -34,7 +36,7 @@ class CarouselSliderHomeWidget extends StatelessWidget {
           deviceWidth: deviceWidth,
           image: ImageManager.carousel3WP,
           onTap: () {
-            //TODO
+            url_launcher.launch(StringsManager.powerUrl);
           },
           title: StringsManager.power,
         ),
@@ -42,7 +44,7 @@ class CarouselSliderHomeWidget extends StatelessWidget {
           deviceWidth: deviceWidth,
           image: ImageManager.carousel4WP,
           onTap: () {
-            //TODO
+            url_launcher.launch(StringsManager.meditationUrl);
           },
           title: StringsManager.meditation,
         ),
@@ -50,7 +52,7 @@ class CarouselSliderHomeWidget extends StatelessWidget {
           deviceWidth: deviceWidth,
           image: ImageManager.carousel5WP,
           onTap: () {
-            //TODO
+            url_launcher.launch(StringsManager.confidenceUrl);
           },
           title: StringsManager.confidence,
         ),

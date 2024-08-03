@@ -11,7 +11,6 @@ import 'package:provider/provider.dart';
 
 class MyApp extends StatefulWidget {
   const MyApp._internal();
-  // int appState = 0;
   static const MyApp instance = MyApp._internal();
 
   factory MyApp() => instance;
