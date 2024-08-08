@@ -22,50 +22,53 @@ class SettingsPageAppBarWidget extends StatefulWidget {
 class _SettingsPageAppBarWidgetState extends State<SettingsPageAppBarWidget> {
   @override
   Widget build(BuildContext context) {
-    final settingsProvider =
-        Provider.of<SettingsProvider>(context, listen: false);
-    final authProvider = Provider.of<AuthProvider>(context, listen: false);
-    Future<void> signOut(
-        SettingsProvider settingsProvider, BuildContext context) async {
-      await settingsProvider.signOut(context: context);
-      authProvider.callAuth();
-    }
+    return Consumer<SettingsProvider>(
+      builder: (context,settingsProvider,_) {
 
-    return AppBar(
-      backgroundColor: Colors.transparent,
-      scrolledUnderElevation: SizeManager.s50,
-      automaticallyImplyLeading: false,
-      elevation: SizeManager.s0,
-      title: Text(
-        StringsManager.settingsABtitle,
-        style: StyleManager.appbarTitleTextStyle,
-      ),
-      actions: [
-        Padding(
-          padding: const EdgeInsets.only(right: PaddingManager.p12),
-          child: Container(
-            height: SizeManager.s40.h,
-            width: SizeManager.s40.w,
-            decoration: BoxDecoration(
-              color: ColorManager.grey3,
-              borderRadius: BorderRadius.circular(
-                RadiusManager.r40.r,
-              ),
-            ),
-            child: IconButton(
-              splashColor: ColorManager.grey3,
-              onPressed: () => signOut(settingsProvider, context),
-              icon: const Icon(
-                Icons.logout_sharp,
-                size: SizeManager.s26,
-                color: ColorManager.white,
-              ),
-            ),
+        final authProvider = Provider.of<AuthProvider>(context, listen: false);
+        Future<void> signOut(
+            SettingsProvider settingsProvider, BuildContext context) async {
+          await settingsProvider.signOut(context: context);
+          authProvider.callAuth();
+        }
+
+        return AppBar(
+          backgroundColor: Colors.transparent,
+          scrolledUnderElevation: SizeManager.s50,
+          automaticallyImplyLeading: false,
+          elevation: SizeManager.s0,
+          title: Text(
+            StringsManager.settingsABtitle,
+            style: StyleManager.appbarTitleTextStyle,
           ),
-        ),
-      ],
-    ).animate().fadeIn(
-          duration: 500.ms,
-        );
+          actions: [
+            Padding(
+              padding: const EdgeInsets.only(right: PaddingManager.p12),
+              child: Container(
+                height: SizeManager.s40.h,
+                width: SizeManager.s40.w,
+                decoration: BoxDecoration(
+                  color: ColorManager.grey3,
+                  borderRadius: BorderRadius.circular(
+                    RadiusManager.r40.r,
+                  ),
+                ),
+                child: IconButton(
+                  splashColor: ColorManager.grey3,
+                  onPressed: () => signOut(settingsProvider, context),
+                  icon: const Icon(
+                    Icons.logout_sharp,
+                    size: SizeManager.s26,
+                    color: ColorManager.white,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ).animate().fadeIn(
+              duration: 500.ms,
+            );
+      }
+    );
   }
 }

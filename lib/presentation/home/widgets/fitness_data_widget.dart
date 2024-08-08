@@ -150,12 +150,10 @@ class FitnessDataWidget extends StatelessWidget {
                                     bmr.toStringAsFixed(0),
                                     style: StyleManager.homePageS20BoldDarkGrey,
                                   ),
-                                  Expanded(
-                                    child: Text(
-                                      StringsManager.kcalPerDay,
-                                      style:
-                                          StyleManager.homePageS16RegularDarkGrey,
-                                    ),
+                                  Text(
+                                    StringsManager.kcalPerDay,
+                                    style:
+                                        StyleManager.homePageS16RegularDarkGrey,
                                   ),
                                 ],
                               ),
