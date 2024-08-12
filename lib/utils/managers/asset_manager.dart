@@ -21,6 +21,7 @@ class ImageManager {
   static const weightIc = '$imagePath/weight_ic.png';
   static const exerciseLogo = '$imagePath/exercise_logo.png';
   static const weight = '$imagePath/weight.png';
+  static const noInternet = '$imagePath/no_internet.png';
 }
 
 class AnimationManager {
