@@ -42,10 +42,13 @@ dependencies:
   slide_to_act: ^2.0.1
   smooth_page_indicator: ^1.0.1
   top_snackbar_flutter: ^3.1.0
-  cupertino_icons: ^1.0.2
   url_launcher:
   flutter_heatmap_calendar: ^1.0.5
   connectivity_plus: ^5.0.2
+  cupertino_icons: ^1.0.6
+  flutter_gemini: ^2.0.3
+  image_picker: ^1.0.7
+  dash_chat_2: ^0.0.20
 
 dev_dependencies:
   flutter_test:

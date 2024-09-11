@@ -60,8 +60,8 @@ class _WorkoutPageState extends State<WorkoutPage> {
                       HeatMap(
                         datasets: workoutsProvider.heatMapData,
                         colorMode: ColorMode.opacity,
-                        startDate: DateTime.now().subtract(const Duration(days: 45)),
-                        endDate:  DateTime.now().add(const Duration(days: 45)),
+                        startDate: DateTime.now().subtract(const Duration(days: 90)),
+                        endDate:  DateTime.now(),
                         showText: false,
                         scrollable: true,
                         textColor: Colors.white,

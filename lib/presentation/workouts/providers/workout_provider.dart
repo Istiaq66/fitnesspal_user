@@ -23,7 +23,7 @@ class WorkoutProvider with ChangeNotifier {
   Map<DateTime, int> get heatMapData {
     return {
       for (var data in _heatMapData)
-        DateTime(data.dateTime.year, data.dateTime.month, data.dateTime.day) : data.setNumber
+        DateTime(data.dateTime.year, data.dateTime.month, data.dateTime.day) : data.setNumber * data.repNumber
     };
   }
 

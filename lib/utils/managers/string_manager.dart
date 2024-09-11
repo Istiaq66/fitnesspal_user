@@ -45,6 +45,7 @@ class StringsManager {
   static const String termsOfService = 'Terms of Service';
   static const String support = 'Support';
   static const String theme = 'Change theme';
+  static const String fitnessBot = 'Fitness Pal Bot';
   static const String deleteAcc = 'Delete account';
   static const String oldPasswordHint = 'Old Password';
   static const String newPasswordHint = 'New Password';
@@ -219,4 +220,9 @@ class StringsManager {
   static const String confidenceUrl = 'https://www.youtube.com/watch?v=rA3Lh9rrbeU&ab_channel=MindPumpShow';
   static const String powerUrl = 'https://www.youtube.com/watch?v=37UhELFvPec&ab_channel=TEDxTalks';
   static const String meditationUrl = 'https://www.youtube.com/watch?v=fz57mdSPgMI&t=81s&ab_channel=TEDxTalks';
+
+
+
+  ///--Keys--//
+  static String geminiApiKey = "AIzaSyBw_c5uDgDeTMAxtVIZJOKJrsH7wPejiso";
 }

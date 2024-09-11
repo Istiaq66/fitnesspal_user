@@ -76,6 +76,12 @@ class _SettingsPageState extends State<SettingsPage> {
             ),
             SettingsPageButton(
               deviceWidth: deviceWidth,
+              onTap: () => Navigator.of(context).pushNamed(Routes.chatBot),
+              iconData: Icons.manage_accounts_outlined,
+              title: StringsManager.fitnessBot,
+            ),
+            SettingsPageButton(
+              deviceWidth: deviceWidth,
               onTap: () {
                 //TODO:
               },

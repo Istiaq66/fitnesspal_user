@@ -1,3 +1,4 @@
+import 'package:fitnesspal_user/presentation/settings/pages/chat_bot_page.dart';
 import 'package:fitnesspal_user/presentation/splash/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:fitnesspal_user/presentation/auth/pages/add_data_page.dart';
@@ -36,6 +37,7 @@ class Routes {
   static const String changeWeightRoute = '/changeWeight';
   static const String changeMeasurementsRoute = '/changeMeasurements';
   static const String subscription = '/subscription';
+  static const String chatBot = '/chatBot';
 }
 
 class RouteGenerator {
@@ -74,6 +76,8 @@ class RouteGenerator {
         return MaterialPageRoute(builder: (_) => const ChangeWeightPage());
       case Routes.subscription:
         return MaterialPageRoute(builder: (_) => const SubscriptionPage());
+      case Routes.chatBot:
+        return MaterialPageRoute(builder: (_) => const ChatBotPage());
       case Routes.changeMeasurementsRoute:
         return MaterialPageRoute(
             builder: (_) => const ChangeMeasurementsPage());
