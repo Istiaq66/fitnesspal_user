@@ -3,6 +3,7 @@ import 'package:fitnesspal_user/presentation/home/widgets/carousel_slider_home_w
 import 'package:fitnesspal_user/presentation/home/widgets/fitness_data_widget.dart';
 import 'package:fitnesspal_user/presentation/home/widgets/home_page_text_spacer_widget.dart';
 import 'package:fitnesspal_user/presentation/home/widgets/todays_progress_widget.dart';
+import 'package:fitnesspal_user/presentation/home/widgets/workouts_home_widget.dart';
 import 'package:fitnesspal_user/utils/managers/string_manager.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
@@ -40,7 +41,9 @@ class _HomePageState extends State<HomePage> {
             HomePageTextSpacerWidget(
               title: StringsManager.explore,
             ),
-            CarouselSliderHomeWidget()
+            CarouselSliderHomeWidget(),
+
+            WorkOutsHomeWidget(),
           ],
         ),
       ),
