@@ -1,6 +1,5 @@
 import 'dart:io';
 import 'dart:typed_data';
-import 'dart:ui';
 
 import 'package:dash_chat_2/dash_chat_2.dart';
 import 'package:fitnesspal_user/utils/managers/asset_manager.dart';
@@ -52,19 +51,14 @@ class _ChatBotPageState extends State<ChatBotPage> {
           "Fitness Pal",style: TextStyle(color: ColorManager.white,),
         ),
       ),
-      body: Stack(
-        children: [
-          Positioned.fill(child: Image.asset(ImageManager.chatBG, fit: BoxFit.fill,),),
-          _buildUI(),
-        ],
-      ),
+      body: _buildUI(),
     );
   }
 
   Widget _buildUI() {
     return DashChat(
       messageOptions: const MessageOptions(
-        currentUserContainerColor: Color.fromARGB(255, 175, 231, 78) ,
+        currentUserContainerColor: ColorManager.blue ,
         containerColor: Color.fromARGB(255, 116, 115, 115),
         textColor: Colors.white,
       ),
