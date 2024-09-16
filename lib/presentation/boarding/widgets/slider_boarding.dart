@@ -21,6 +21,7 @@ class SliderBoardingWidget extends StatelessWidget {
         text: StringsManager.swipeToPrc,
         onSubmit: () {
           Navigator.of(context).pushReplacementNamed(Routes.authRoute);
+          return null;
         },
       ),
     );

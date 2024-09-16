@@ -42,14 +42,14 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                       left: getWidth(context) * 0.06),
                   width: getWidth(context) * 0.2,
                   height: getHeight(context) * 0.02,
-                  child: Text(
+                  child: const Text(
                     'Level',
                     style: TextStyle(
                       color: Colors.white,
                       fontSize: 15.0,
                     ),
                   )),
-              Container(
+              SizedBox(
                 width: getWidth(context),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -58,7 +58,7 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                       width: getWidth(context) * 0.4,
                       height: getHeight(context) * 0.025,
                       margin: EdgeInsets.only(left: getWidth(context) * 0.06),
-                      child: Text(
+                      child: const Text(
                         'ADVANCED',
                         style: TextStyle(
                           letterSpacing: 0.5,
@@ -68,9 +68,9 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                         ),
                       ),
                     ),
-                    Spacer(),
+                    const Spacer(),
                     Container(
-                      margin: EdgeInsets.only(),
+                      margin: const EdgeInsets.only(),
                       child: IconButton(
                         onPressed: () {
                           showModalBottomSheet(
@@ -78,22 +78,29 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                               context: context,
                               builder: (BuildContext context) {
                                 return Container(
-                                    decoration: BoxDecoration(
+                                    decoration: const BoxDecoration(
                                         color: Colors.black,
                                         borderRadius: BorderRadius.only(
                                             topLeft: Radius.circular(20),
                                             topRight: Radius.circular(20))),
                                     width: getWidth(context),
-                                    height: getHeight(context) * 0.65,
+                                    height: getHeight(context) * 0.70,
                                     child: SingleChildScrollView(
                                       child: Column(
                                         crossAxisAlignment:
                                             CrossAxisAlignment.center,
                                         children: [
                                           Row(
+                                            mainAxisAlignment:
+                                                MainAxisAlignment.center,
                                             children: [
                                               Container(
-                                                child: Center(
+                                                margin: const EdgeInsets.only(
+                                                    left: 15, top: 10),
+                                                width: getWidth(context) * 0.4,
+                                                height:
+                                                    getHeight(context) * 0.05,
+                                                child: const Center(
                                                   child: Text(
                                                     'Quick Warmup',
                                                     style: TextStyle(
@@ -104,15 +111,8 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                                                     ),
                                                   ),
                                                 ),
-                                                margin: EdgeInsets.only(
-                                                    left: 15, top: 10),
-                                                width: getWidth(context) * 0.4,
-                                                height:
-                                                    getHeight(context) * 0.05,
                                               ),
                                             ],
-                                            mainAxisAlignment:
-                                                MainAxisAlignment.center,
                                           ),
                                           Container(
                                             width: getWidth(context),
@@ -120,7 +120,11 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                                             color: Colors.white,
                                           ),
                                           Container(
-                                            child: Text(
+                                            margin: EdgeInsets.only(
+                                                left: getWidth(context) * 0.05,
+                                                right: getWidth(context) * 0.05,
+                                                top: 10.0),
+                                            child: const Text(
                                               'Warm up properly before exercising to prevent injury ',
                                               style: TextStyle(
                                                 color: Colors.white,
@@ -128,13 +132,13 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                                                 fontWeight: FontWeight.bold,
                                               ),
                                             ),
+                                          ),
+                                          Container(
                                             margin: EdgeInsets.only(
                                                 left: getWidth(context) * 0.05,
                                                 right: getWidth(context) * 0.05,
-                                                top: 10.0),
-                                          ),
-                                          Container(
-                                            child: Text(
+                                                top: 2.0),
+                                            child: const Text(
                                               'and make your workouts more effective.',
                                               style: TextStyle(
                                                 color: Colors.white,
@@ -142,13 +146,14 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                                                 fontWeight: FontWeight.bold,
                                               ),
                                             ),
+                                          ),
+                                          Container(
                                             margin: EdgeInsets.only(
                                                 left: getWidth(context) * 0.05,
                                                 right: getWidth(context) * 0.05,
-                                                top: 2.0),
-                                          ),
-                                          Container(
-                                            child: Text(
+                                                top: 10.0,
+                                                bottom: 25.0),
+                                            child: const Text(
                                               'Repeat each exercise for 20 seconds',
                                               style: TextStyle(
                                                 color: Colors.white,
@@ -156,17 +161,16 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                                                 fontWeight: FontWeight.bold,
                                               ),
                                             ),
-                                            margin: EdgeInsets.only(
-                                                left: getWidth(context) * 0.05,
-                                                right: getWidth(context) * 0.05,
-                                                top: 10.0,
-                                                bottom: 25.0),
                                           ),
 
-                                          SizedBox(
+                                          const SizedBox(
                                             height: 8.0,
                                           ),
                                           Container(
+                                            margin: EdgeInsets.only(
+                                                left: getWidth(context) * 0.05,
+                                                right: getWidth(context) * 0.05,
+                                                top: 10.0),
                                             child: Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment
@@ -201,36 +205,36 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                                                 ),
                                               ],
                                             ),
+                                          ),
+                                          const SizedBox(
+                                            height: 2.0,
+                                          ),
+                                          Container(
                                             margin: EdgeInsets.only(
                                                 left: getWidth(context) * 0.05,
                                                 right: getWidth(context) * 0.05,
                                                 top: 10.0),
-                                          ),
-                                          SizedBox(
-                                            height: 2.0,
-                                          ),
-                                          Container(
                                             child: Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment
                                                       .spaceBetween,
                                               children: [
                                                 Container(
-                                                    child: Text(
+                                                    child: const Text(
                                                   'Pushups',
                                                   style: TextStyle(
                                                     color: Colors.white,
                                                   ),
                                                 )),
                                                 Container(
-                                                    child: Text(
+                                                    child: const Text(
                                                   'Jumping Jack',
                                                   style: TextStyle(
                                                     color: Colors.white,
                                                   ),
                                                 )),
                                                 Container(
-                                                  child: Text(
+                                                  child: const Text(
                                                     'Squat Kick',
                                                     style: TextStyle(
                                                       color: Colors.white,
@@ -239,15 +243,15 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                                                 ),
                                               ],
                                             ),
+                                          ),
+                                          const SizedBox(
+                                            height: 9.0,
+                                          ),
+                                          Container(
                                             margin: EdgeInsets.only(
                                                 left: getWidth(context) * 0.05,
                                                 right: getWidth(context) * 0.05,
                                                 top: 10.0),
-                                          ),
-                                          SizedBox(
-                                            height: 9.0,
-                                          ),
-                                          Container(
                                             child: Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment
@@ -282,36 +286,36 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                                                 ),
                                               ],
                                             ),
+                                          ),
+                                          const SizedBox(
+                                            height: 2.0,
+                                          ),
+                                          Container(
                                             margin: EdgeInsets.only(
                                                 left: getWidth(context) * 0.05,
                                                 right: getWidth(context) * 0.05,
                                                 top: 10.0),
-                                          ),
-                                          SizedBox(
-                                            height: 2.0,
-                                          ),
-                                          Container(
                                             child: Row(
                                               mainAxisAlignment:
                                                   MainAxisAlignment
                                                       .spaceBetween,
                                               children: [
                                                 Container(
-                                                    child: Text(
+                                                    child: const Text(
                                                   'Seated Abs',
                                                   style: TextStyle(
                                                     color: Colors.white,
                                                   ),
                                                 )),
                                                 Container(
-                                                    child: Text(
+                                                    child: const Text(
                                                   'T-Plank',
                                                   style: TextStyle(
                                                     color: Colors.white,
                                                   ),
                                                 )),
                                                 Container(
-                                                    child: Text(
+                                                    child: const Text(
                                                   'Split Jump',
                                                   style: TextStyle(
                                                     color: Colors.white,
@@ -319,38 +323,8 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                                                 )),
                                               ],
                                             ),
-                                            margin: EdgeInsets.only(
-                                                left: getWidth(context) * 0.05,
-                                                right: getWidth(context) * 0.05,
-                                                top: 10.0),
-                                          ),
-                                          // Container(
-                                          //   child: Text(
-                                          //     'Your body needs energy to work normally and keep you alive. You obtain this energy from nutrients in the food that you eat - mostly, carbohydrates, fats and proteins. Minerals and vitamins are other nutrients that are also important in your diet to help your body stay healthy. It is important to find the right balance between these different nutrients to achieve maximum health benefits',
-                                          //     style: TextStyle(
-                                          //       color: Colors.white,
-                                          //       fontSize: 15.0,
-                                          //     ),
-                                          //   ),
-                                          //   margin: EdgeInsets.only(left: getWidth(context)*0.05,right: getWidth(context)*0.05,top: 10.0),
-                                          // ),
-                                          // SizedBox(
-                                          //   height: 8.0,
-                                          // ),
-                                          //
-                                          // Container(
-                                          //   child: Text(
-                                          //     'As a general rule, vegetables, fruits and starchy foods should provide the bulk of most of your meals. The remaining part of your diet should be made up from milk and dairy foods and protein foods. As mentioned above, you should limit the amount of foods and drinks that are high in fat or sugar.',
-                                          //     style: TextStyle(
-                                          //       color: Colors.white,
-                                          //       fontSize: 15.0,
-                                          //     ),
-                                          //   ),
-                                          //   margin: EdgeInsets.only(left: getWidth(context)*0.05,right: getWidth(context)*0.05,top: 10.0),
-                                          // ),
-                                          SizedBox(
-                                            height: 8.0,
-                                          ),
+                                          ), const SizedBox(height: 8.0,),
+
                                           InkWell(
                                             child: Container(
                                               width: getWidth(context),
@@ -360,7 +334,14 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                                                     BorderRadius.circular(20),
                                                 color: Colors.red,
                                               ),
-                                              child: Center(
+                                              margin: EdgeInsets.only(
+                                                  top: 25.0,
+                                                  left:
+                                                      getWidth(context) * 0.05,
+                                                  right:
+                                                      getWidth(context) * 0.05,
+                                                  bottom: 20.0),
+                                              child: const Center(
                                                 child: Text(
                                                   'Close',
                                                   style: TextStyle(
@@ -370,13 +351,6 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                                                   ),
                                                 ),
                                               ),
-                                              margin: EdgeInsets.only(
-                                                  top: 25.0,
-                                                  left:
-                                                      getWidth(context) * 0.05,
-                                                  right:
-                                                      getWidth(context) * 0.05,
-                                                  bottom: 20.0),
                                             ),
                                             onTap: () {
                                               Navigator.pop(context);
@@ -387,7 +361,7 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                                     ));
                               });
                         },
-                        icon: Icon(Icons.sports_gymnastics),
+                        icon: const Icon(Icons.sports_gymnastics),
                         color: Colors.white,
                         iconSize: 22.0,
                       ),
@@ -395,7 +369,7 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                   ],
                 ),
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
               Row(
@@ -407,15 +381,17 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                           context,
                           MaterialPageRoute(
                               builder: (BuildContext context) =>
-                                  animateadvance1()));
+                                  const animateadvance1()));
                     },
                     child: Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(20),
                             bottomRight: Radius.circular(20)),
                         color: Colors.white10,
                       ),
+                      height: getHeight(context) * 0.35,
+                      width: getWidth(context) * 0.45,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -423,7 +399,7 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                           Container(
                             height: getHeight(context) * 0.3,
                             width: getWidth(context),
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                                 borderRadius: BorderRadius.only(
                                     bottomRight: Radius.circular(25),
                                     bottomLeft: Radius.circular(25)),
@@ -438,7 +414,7 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                             alignment: Alignment.center,
                             margin:
                                 EdgeInsets.only(top: getWidth(context) * 0.032),
-                            child: Text(
+                            child: const Text(
                               'Advance Pushups',
                               style: TextStyle(
                                 fontSize: 17.0,
@@ -450,8 +426,6 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                           ),
                         ],
                       ),
-                      height: getHeight(context) * 0.35,
-                      width: getWidth(context) * 0.45,
                     ),
                   ),
                   SizedBox(
@@ -463,15 +437,17 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                           context,
                           MaterialPageRoute(
                               builder: (BuildContext context) =>
-                                  animateadvance2()));
+                                  const animateadvance2()));
                     },
                     child: Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(20),
                             bottomRight: Radius.circular(20)),
                         color: Colors.white10,
                       ),
+                      height: getHeight(context) * 0.35,
+                      width: getWidth(context) * 0.45,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -479,7 +455,7 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                           Container(
                             height: getHeight(context) * 0.3,
                             width: getWidth(context),
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                                 borderRadius: BorderRadius.only(
                                     bottomRight: Radius.circular(25),
                                     bottomLeft: Radius.circular(25)),
@@ -494,7 +470,7 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                             alignment: Alignment.center,
                             margin:
                                 EdgeInsets.only(top: getWidth(context) * 0.032),
-                            child: Text(
+                            child: const Text(
                               'Advance Strength',
                               style: TextStyle(
                                 fontSize: 17.0,
@@ -506,13 +482,11 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                           ),
                         ],
                       ),
-                      height: getHeight(context) * 0.35,
-                      width: getWidth(context) * 0.45,
                     ),
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
               Row(
@@ -524,15 +498,17 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                           context,
                           MaterialPageRoute(
                               builder: (BuildContext context) =>
-                                  animateadvance3()));
+                                  const animateadvance3()));
                     },
                     child: Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(20),
                             bottomRight: Radius.circular(20)),
                         color: Colors.white10,
                       ),
+                      height: getHeight(context) * 0.35,
+                      width: getWidth(context) * 0.45,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -540,7 +516,7 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                           Container(
                             height: getHeight(context) * 0.3,
                             width: getWidth(context),
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                                 borderRadius: BorderRadius.only(
                                     bottomRight: Radius.circular(25),
                                     bottomLeft: Radius.circular(25)),
@@ -555,7 +531,7 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                             alignment: Alignment.center,
                             margin:
                                 EdgeInsets.only(top: getWidth(context) * 0.032),
-                            child: Text(
+                            child: const Text(
                               'Arms Routine',
                               style: TextStyle(
                                 fontSize: 17.0,
@@ -567,8 +543,6 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                           ),
                         ],
                       ),
-                      height: getHeight(context) * 0.35,
-                      width: getWidth(context) * 0.45,
                     ),
                   ),
                   SizedBox(
@@ -580,15 +554,17 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                           context,
                           MaterialPageRoute(
                               builder: (BuildContext context) =>
-                                  animateadvance4()));
+                                  const animateadvance4()));
                     },
                     child: Container(
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                         borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(20),
                             bottomRight: Radius.circular(20)),
                         color: Colors.white10,
                       ),
+                      height: getHeight(context) * 0.35,
+                      width: getWidth(context) * 0.45,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -596,7 +572,7 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                           Container(
                             height: getHeight(context) * 0.3,
                             width: getWidth(context),
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                                 borderRadius: BorderRadius.only(
                                     bottomRight: Radius.circular(25),
                                     bottomLeft: Radius.circular(25)),
@@ -611,7 +587,7 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                             alignment: Alignment.center,
                             margin:
                                 EdgeInsets.only(top: getWidth(context) * 0.032),
-                            child: Text(
+                            child: const Text(
                               'Back Routine',
                               style: TextStyle(
                                 fontSize: 17.0,
@@ -623,13 +599,11 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                           ),
                         ],
                       ),
-                      height: getHeight(context) * 0.35,
-                      width: getWidth(context) * 0.45,
                     ),
                   ),
                 ],
               ),
-              SizedBox(
+              const SizedBox(
                 height: 20.0,
               ),
               Row(
@@ -641,16 +615,18 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                           context,
                           MaterialPageRoute(
                               builder: (BuildContext context) =>
-                                  animateadvance5()));
+                                  const animateadvance5()));
                     },
                     child: Container(
-                      margin: EdgeInsets.only(left: 15),
-                      decoration: BoxDecoration(
+                      margin: const EdgeInsets.only(left: 15),
+                      decoration: const BoxDecoration(
                         borderRadius: BorderRadius.only(
                             bottomLeft: Radius.circular(20),
                             bottomRight: Radius.circular(20)),
                         color: Colors.white10,
                       ),
+                      height: getHeight(context) * 0.35,
+                      width: getWidth(context) * 0.45,
                       child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
                         crossAxisAlignment: CrossAxisAlignment.start,
@@ -658,7 +634,7 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                           Container(
                             height: getHeight(context) * 0.3,
                             width: getWidth(context),
-                            decoration: BoxDecoration(
+                            decoration: const BoxDecoration(
                                 borderRadius: BorderRadius.only(
                                     bottomRight: Radius.circular(25),
                                     bottomLeft: Radius.circular(25)),
@@ -673,7 +649,7 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                             alignment: Alignment.center,
                             margin:
                                 EdgeInsets.only(top: getWidth(context) * 0.032),
-                            child: Text(
+                            child: const Text(
                               'Full Body Routine',
                               style: TextStyle(
                                 fontSize: 17.0,
@@ -685,8 +661,6 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                           ),
                         ],
                       ),
-                      height: getHeight(context) * 0.35,
-                      width: getWidth(context) * 0.45,
                     ),
                   ),
                   SizedBox(
@@ -719,7 +693,7 @@ class _animateadvance1State extends State<animateadvance1> {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.close,
               color: Colors.white,
               size: 30.0,
@@ -731,7 +705,7 @@ class _animateadvance1State extends State<animateadvance1> {
       body: Center(
         child: InteractiveViewer(
           child: Container(
-            child: Image(
+            child: const Image(
               image: AssetImage("assets/images/ad_pushups.jpg"),
             ),
           ),
@@ -760,7 +734,7 @@ class _animateadvance2State extends State<animateadvance2> {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.close,
               color: Colors.white,
               size: 30.0,
@@ -772,7 +746,7 @@ class _animateadvance2State extends State<animateadvance2> {
       body: Center(
         child: InteractiveViewer(
           child: Container(
-            child: Image(
+            child: const Image(
               image: AssetImage("assets/images/ad_strength.jpg"),
             ),
           ),
@@ -801,7 +775,7 @@ class _animateadvance3State extends State<animateadvance3> {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.close,
               color: Colors.white,
               size: 30.0,
@@ -813,7 +787,7 @@ class _animateadvance3State extends State<animateadvance3> {
       body: Center(
         child: InteractiveViewer(
           child: Container(
-            child: Image(
+            child: const Image(
               image: AssetImage("assets/images/ad_arms.jpg"),
             ),
           ),
@@ -842,7 +816,7 @@ class _animateadvance4State extends State<animateadvance4> {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.close,
               color: Colors.white,
               size: 30.0,
@@ -854,7 +828,7 @@ class _animateadvance4State extends State<animateadvance4> {
       body: Center(
         child: InteractiveViewer(
           child: Container(
-            child: Image(
+            child: const Image(
               image: AssetImage("assets/images/ad_back.jpg"),
             ),
           ),
@@ -883,7 +857,7 @@ class _animateadvance5State extends State<animateadvance5> {
             onPressed: () {
               Navigator.pop(context);
             },
-            icon: Icon(
+            icon: const Icon(
               Icons.close,
               color: Colors.white,
               size: 30.0,
@@ -895,7 +869,7 @@ class _animateadvance5State extends State<animateadvance5> {
       body: Center(
         child: InteractiveViewer(
           child: Container(
-            child: Image(
+            child: const Image(
               image: AssetImage("assets/images/ad_full.jpg"),
             ),
           ),

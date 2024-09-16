@@ -1,5 +1,4 @@
 
-import 'package:connectivity_plus/connectivity_plus.dart';
 import 'package:fitnesspal_user/presentation/splash/pages/splash_screen.dart';
 import 'package:fitnesspal_user/utils/managers/asset_manager.dart';
 import 'package:fitnesspal_user/utils/managers/style_manager.dart';

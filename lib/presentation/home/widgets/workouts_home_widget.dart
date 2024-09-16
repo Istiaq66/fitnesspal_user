@@ -79,7 +79,8 @@ class WorkOutsHomeWidget extends StatelessWidget {
                         color: Colors.white10,
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: Container(
+                      margin: EdgeInsets.only(left: getWidth(context)*0.05,right: getWidth(context)*0.02),
+                      child: SizedBox(
                         width: getWidth(context)*0.8,
                         height: getHeight(context)*0.1,
                         child: Column(
@@ -87,9 +88,12 @@ class WorkOutsHomeWidget extends StatelessWidget {
                           children: [
 
                             Row(
+                              mainAxisAlignment: MainAxisAlignment.center
+                              , crossAxisAlignment: CrossAxisAlignment.center,
                               children: [
-                                Container(
-                                  child: Text(
+                                SizedBox(
+                                  width: getWidth(context)*0.6,
+                                  child: const Text(
                                     'Top Vegetables That Are High In protein',
                                     style: TextStyle(
                                       color: Colors.white,
@@ -97,29 +101,25 @@ class WorkOutsHomeWidget extends StatelessWidget {
 
                                     ),
                                   ),
-                                  width: getWidth(context)*0.6,
                                 ),
                                 Container(
                                   width: getWidth(context)*0.23,
                                   height: getHeight(context)*0.08,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(15),
-                                      image: DecorationImage(
+                                      image: const DecorationImage(
                                           image: AssetImage("assets/images/vegg.jpg"),
                                           fit: BoxFit.cover
                                       )
                                   ),
                                 ),
                               ],
-                              mainAxisAlignment: MainAxisAlignment.center
-                              , crossAxisAlignment: CrossAxisAlignment.center,
                             ),
                           ],
                         ),
-                      ),
-                      margin: EdgeInsets.only(left: getWidth(context)*0.05,right: getWidth(context)*0.02)
+                      )
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10.0,
                   ),
                   Container(
@@ -130,7 +130,8 @@ class WorkOutsHomeWidget extends StatelessWidget {
                         color: Colors.white10,
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: Container(
+                      margin: EdgeInsets.only(left: getWidth(context)*0.02,right: getWidth(context)*0.02),
+                      child: SizedBox(
                         width: getWidth(context)*0.8,
                         height: getHeight(context)*0.1,
                         child: Column(
@@ -139,10 +140,15 @@ class WorkOutsHomeWidget extends StatelessWidget {
 
                             Row(
 
-                              children: [
-                                Container(
+                              mainAxisAlignment: MainAxisAlignment.center
+                              , crossAxisAlignment: CrossAxisAlignment.center,
 
-                                  child: Text(
+                              children: [
+                                SizedBox(
+
+                                  width: getWidth(context)*0.6,
+
+                                  child: const Text(
                                     'Reasons Why Sugar Is Bad For You',
                                     style: TextStyle(
                                       color: Colors.white,
@@ -150,14 +156,13 @@ class WorkOutsHomeWidget extends StatelessWidget {
 
                                     ),
                                   ),
-                                  width: getWidth(context)*0.6,
                                 ),
                                 Container(
                                   width: getWidth(context)*0.23,
                                   height: getHeight(context)*0.08,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(15),
-                                      image: DecorationImage(
+                                      image: const DecorationImage(
                                           image: AssetImage("assets/images/nosugar.jpg"),
                                           fit: BoxFit.cover
                                       )
@@ -165,15 +170,12 @@ class WorkOutsHomeWidget extends StatelessWidget {
 
                                 ),
                               ],
-                              mainAxisAlignment: MainAxisAlignment.center
-                              , crossAxisAlignment: CrossAxisAlignment.center,
                             ),
                           ],
                         ),
-                      ),
-                      margin: EdgeInsets.only(left: getWidth(context)*0.02,right: getWidth(context)*0.02)
+                      )
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10.0,
                   ),
                   Container(
@@ -184,7 +186,8 @@ class WorkOutsHomeWidget extends StatelessWidget {
                         color: Colors.white10,
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: Container(
+                      margin: EdgeInsets.only(left: getWidth(context)*0.02,right: getWidth(context)*0.02),
+                      child: SizedBox(
                         width: getWidth(context)*0.8,
                         height: getHeight(context)*0.1,
                         child: Column(
@@ -193,10 +196,15 @@ class WorkOutsHomeWidget extends StatelessWidget {
 
                             Row(
 
-                              children: [
-                                Container(
+                              mainAxisAlignment: MainAxisAlignment.center
+                              , crossAxisAlignment: CrossAxisAlignment.center,
 
-                                  child: Text(
+                              children: [
+                                SizedBox(
+
+                                  width: getWidth(context)*0.6,
+
+                                  child: const Text(
                                     'The Benefits Of jumping Rope Training ',
                                     style: TextStyle(
                                       color: Colors.white,
@@ -204,14 +212,13 @@ class WorkOutsHomeWidget extends StatelessWidget {
 
                                     ),
                                   ),
-                                  width: getWidth(context)*0.6,
                                 ),
                                 Container(
                                   width: getWidth(context)*0.23,
                                   height: getHeight(context)*0.08,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(15),
-                                      image: DecorationImage(
+                                      image: const DecorationImage(
                                           image: AssetImage("assets/images/rope.jpg"),
                                           fit: BoxFit.cover
                                       )
@@ -219,15 +226,12 @@ class WorkOutsHomeWidget extends StatelessWidget {
 
                                 ),
                               ],
-                              mainAxisAlignment: MainAxisAlignment.center
-                              , crossAxisAlignment: CrossAxisAlignment.center,
                             ),
                           ],
                         ),
-                      ),
-                      margin: EdgeInsets.only(left: getWidth(context)*0.02,right: getWidth(context)*0.02)
+                      )
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10.0,
                   ),
                   Container(
@@ -238,7 +242,8 @@ class WorkOutsHomeWidget extends StatelessWidget {
                         color: Colors.white10,
                         borderRadius: BorderRadius.circular(20),
                       ),
-                      child: Container(
+                      margin: EdgeInsets.only(left: getWidth(context)*0.02,right: getWidth(context)*0.02),
+                      child: SizedBox(
                         width: getWidth(context)*0.8,
                         height: getHeight(context)*0.1,
                         child: Column(
@@ -247,10 +252,15 @@ class WorkOutsHomeWidget extends StatelessWidget {
 
                             Row(
 
-                              children: [
-                                Container(
+                              mainAxisAlignment: MainAxisAlignment.center
+                              , crossAxisAlignment: CrossAxisAlignment.center,
 
-                                  child: Text(
+                              children: [
+                                SizedBox(
+
+                                  width: getWidth(context)*0.6,
+
+                                  child: const Text(
                                     '6 Reasons For Doing Calisthenics Workouts  ',
                                     style: TextStyle(
                                       color: Colors.white,
@@ -258,14 +268,13 @@ class WorkOutsHomeWidget extends StatelessWidget {
 
                                     ),
                                   ),
-                                  width: getWidth(context)*0.6,
                                 ),
                                 Container(
                                   width: getWidth(context)*0.23,
                                   height: getHeight(context)*0.08,
                                   decoration: BoxDecoration(
                                       borderRadius: BorderRadius.circular(15),
-                                      image: DecorationImage(
+                                      image: const DecorationImage(
                                           image: AssetImage("assets/images/street.jpg"),
                                           fit: BoxFit.cover
                                       )
@@ -273,13 +282,10 @@ class WorkOutsHomeWidget extends StatelessWidget {
 
                                 ),
                               ],
-                              mainAxisAlignment: MainAxisAlignment.center
-                              , crossAxisAlignment: CrossAxisAlignment.center,
                             ),
                           ],
                         ),
-                      ),
-                      margin: EdgeInsets.only(left: getWidth(context)*0.02,right: getWidth(context)*0.02)
+                      )
                   ),
                 ],
               ),
@@ -289,7 +295,7 @@ class WorkOutsHomeWidget extends StatelessWidget {
             Container(
               width: getWidth(context),
               margin: EdgeInsets.only(left: getWidth(context)*0.08,top: getHeight(context)*0.02),
-              child: Text(
+              child: const Text(
                 'HEALTHY FOOD',
                 style: TextStyle(
                   color: Colors.white60,
@@ -304,7 +310,7 @@ class WorkOutsHomeWidget extends StatelessWidget {
                   width: getWidth(context)*0.6,
                   margin: EdgeInsets.only(left: getWidth(context)*0.08,),
                   child:
-                  Text(
+                  const Text(
                     'NUTRITION',
                     style: TextStyle(
                       color: Colors.white,
@@ -313,12 +319,12 @@ class WorkOutsHomeWidget extends StatelessWidget {
                     ),
                   ),
                 ),
-                Spacer(),
+                const Spacer(),
                 Container(
                   margin: EdgeInsets.only(right: getWidth(context)*0.05,),
                   child: TextButton(
                     child:
-                    Text(
+                    const Text(
                       'see all',
                       style: TextStyle(
                         color: Colors.red,
@@ -348,6 +354,7 @@ class WorkOutsHomeWidget extends StatelessWidget {
                         color: Colors.white10,
                         borderRadius: BorderRadius.circular(20),
                       ),
+                      margin: EdgeInsets.only(left: getWidth(context)*0.05,right: getWidth(context)*0.02,bottom: 20),
                       child: Container(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -359,7 +366,7 @@ class WorkOutsHomeWidget extends StatelessWidget {
                               height: getHeight(context)*0.22,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(25),
-                                  image: DecorationImage(
+                                  image: const DecorationImage(
                                     image: AssetImage ("assets/images/fishy.jpg"),
                                     fit: BoxFit.cover,
                                   )
@@ -367,7 +374,7 @@ class WorkOutsHomeWidget extends StatelessWidget {
                             ),
                             Container(
                               margin: EdgeInsets.only(left: getWidth(context)*0.045,top: getWidth(context)*0.03),
-                              child: Text(
+                              child: const Text(
                                 'Fish',
                                 style: TextStyle(
                                   color: Colors.white,
@@ -378,7 +385,7 @@ class WorkOutsHomeWidget extends StatelessWidget {
                             ),
                             Container(
                               margin: EdgeInsets.only(left: getWidth(context)*0.045,top: getWidth(context)*0.03),
-                              child: Text(
+                              child: const Text(
                                 'Fish is filled with omega-3 fatty acids and vitamins such as D and B2 (riboflavin). Fish is rich in calcium and phosphorus and a great source of minerals, such as iron, zinc, iodine, magnesium, and potassium.',
                                 style: TextStyle(
                                   color: Colors.white70,
@@ -388,10 +395,9 @@ class WorkOutsHomeWidget extends StatelessWidget {
                             ),
                           ],
                         ),
-                      ),
-                      margin: EdgeInsets.only(left: getWidth(context)*0.05,right: getWidth(context)*0.02,bottom: 20)
+                      )
                   ),
-                  SizedBox(
+                  const SizedBox(
                     width: 10.0,
                   ),
                   Container(
@@ -402,6 +408,7 @@ class WorkOutsHomeWidget extends StatelessWidget {
                         color: Colors.white10,
                         borderRadius: BorderRadius.circular(20),
                       ),
+                      margin: EdgeInsets.only(left: getWidth(context)*0.05,right: getWidth(context)*0.02,bottom: 20),
                       child: Container(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -413,7 +420,7 @@ class WorkOutsHomeWidget extends StatelessWidget {
                               height: getHeight(context)*0.22,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(25),
-                                  image: DecorationImage(
+                                  image: const DecorationImage(
                                     image: AssetImage ("assets/images/stawbery.jpg"),
                                     fit: BoxFit.cover,
                                   )
@@ -421,7 +428,7 @@ class WorkOutsHomeWidget extends StatelessWidget {
                             ),
                             Container(
                               margin: EdgeInsets.only(left: getWidth(context)*0.045,top: getWidth(context)*0.03),
-                              child: Text(
+                              child: const Text(
                                 'Strawberry',
                                 style: TextStyle(
                                   color: Colors.white,
@@ -432,7 +439,7 @@ class WorkOutsHomeWidget extends StatelessWidget {
                             ),
                             Container(
                               margin: EdgeInsets.only(left: getWidth(context)*0.045,top: getWidth(context)*0.03),
-                              child: Text(
+                              child: const Text(
                                 'Strawberries are an excellent source of vitamin C and manganese and also contain decent amounts of folate (vitamin B9) and potassium. Strawberries are very rich in antioxidants and plant compounds.',
                                 style: TextStyle(
                                   color: Colors.white70,
@@ -441,8 +448,7 @@ class WorkOutsHomeWidget extends StatelessWidget {
                             ),
                           ],
                         ),
-                      ),
-                      margin: EdgeInsets.only(left: getWidth(context)*0.05,right: getWidth(context)*0.02,bottom: 20)
+                      )
                   ),
                   Container(
 
@@ -452,6 +458,7 @@ class WorkOutsHomeWidget extends StatelessWidget {
                         color: Colors.white10,
                         borderRadius: BorderRadius.circular(20),
                       ),
+                      margin: EdgeInsets.only(left: getWidth(context)*0.05,right: getWidth(context)*0.02,bottom: 20),
                       child: Container(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -463,7 +470,7 @@ class WorkOutsHomeWidget extends StatelessWidget {
                               height: getHeight(context)*0.22,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(25),
-                                  image: DecorationImage(
+                                  image: const DecorationImage(
                                     image: AssetImage ("assets/images/potatoes.jpg"),
                                     fit: BoxFit.cover,
                                   )
@@ -471,7 +478,7 @@ class WorkOutsHomeWidget extends StatelessWidget {
                             ),
                             Container(
                               margin: EdgeInsets.only(left: getWidth(context)*0.045,top: getWidth(context)*0.03),
-                              child: Text(
+                              child: const Text(
                                 'Potatoes',
                                 style: TextStyle(
                                   fontSize: 20.0,
@@ -482,7 +489,7 @@ class WorkOutsHomeWidget extends StatelessWidget {
                             ),
                             Container(
                               margin: EdgeInsets.only(left: getWidth(context)*0.045,top: getWidth(context)*0.03),
-                              child: Text(
+                              child: const Text(
                                 'Potatoes are rich in vitamin C, which is an antioxidant. Potatoes were a life-saving food source in early times because the vitamin C prevented scurvy. Another major nutrient in potatoes is potassium.',
                                 style: TextStyle(
                                   color: Colors.white70,
@@ -491,8 +498,7 @@ class WorkOutsHomeWidget extends StatelessWidget {
                             ),
                           ],
                         ),
-                      ),
-                      margin: EdgeInsets.only(left: getWidth(context)*0.05,right: getWidth(context)*0.02,bottom: 20)
+                      )
                   ),
                   Container(
 
@@ -502,6 +508,7 @@ class WorkOutsHomeWidget extends StatelessWidget {
                         color: Colors.white10,
                         borderRadius: BorderRadius.circular(20),
                       ),
+                      margin: EdgeInsets.only(left: getWidth(context)*0.05,right: getWidth(context)*0.02,bottom: 20),
                       child: Container(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -513,7 +520,7 @@ class WorkOutsHomeWidget extends StatelessWidget {
                               height: getHeight(context)*0.22,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(25),
-                                  image: DecorationImage(
+                                  image: const DecorationImage(
                                     image: AssetImage ("assets/images/bananas.jpg"),
                                     fit: BoxFit.cover,
                                   )
@@ -521,7 +528,7 @@ class WorkOutsHomeWidget extends StatelessWidget {
                             ),
                             Container(
                               margin: EdgeInsets.only(left: getWidth(context)*0.045,top: getWidth(context)*0.03),
-                              child: Text(
+                              child: const Text(
                                 'Banana',
                                 style: TextStyle(
                                   fontSize: 20.0,
@@ -532,7 +539,7 @@ class WorkOutsHomeWidget extends StatelessWidget {
                             ),
                             Container(
                               margin: EdgeInsets.only(left: getWidth(context)*0.045,top: getWidth(context)*0.03),
-                              child: Text(
+                              child: const Text(
                                 'Is it good to eat a banana every day. They are full of important nutrients, but eating too many could do more harm than good. Too much of any single food may contribute to weight gain and nutrient deficiencies. ',
                                 style: TextStyle(
                                   color: Colors.white70,
@@ -541,8 +548,7 @@ class WorkOutsHomeWidget extends StatelessWidget {
                             ),
                           ],
                         ),
-                      ),
-                      margin: EdgeInsets.only(left: getWidth(context)*0.05,right: getWidth(context)*0.02,bottom: 20)
+                      )
                   ),
                   Container(
 
@@ -552,6 +558,7 @@ class WorkOutsHomeWidget extends StatelessWidget {
                         color: Colors.white10,
                         borderRadius: BorderRadius.circular(20),
                       ),
+                      margin: EdgeInsets.only(left: getWidth(context)*0.05,right: getWidth(context)*0.02,bottom: 20),
                       child: Container(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -563,7 +570,7 @@ class WorkOutsHomeWidget extends StatelessWidget {
                               height: getHeight(context)*0.22,
                               decoration: BoxDecoration(
                                   borderRadius: BorderRadius.circular(25),
-                                  image: DecorationImage(
+                                  image: const DecorationImage(
                                     image: AssetImage ("assets/images/eggs.jpg"),
                                     fit: BoxFit.cover,
                                   )
@@ -571,7 +578,7 @@ class WorkOutsHomeWidget extends StatelessWidget {
                             ),
                             Container(
                               margin: EdgeInsets.only(left: getWidth(context)*0.045,top: getWidth(context)*0.03),
-                              child: Text(
+                              child: const Text(
                                 'Eggs',
                                 style: TextStyle(
                                   fontSize: 20.0,
@@ -582,7 +589,7 @@ class WorkOutsHomeWidget extends StatelessWidget {
                             ),
                             Container(
                               margin: EdgeInsets.only(left: getWidth(context)*0.045,top: getWidth(context)*0.03),
-                              child: Text(
+                              child: const Text(
                                 'Eggs are also a great source of heart-healthy nutrients like potassium, folate and B vitamins. Some research suggests that up to two eggs per day actually improves heart health.',
                                 style: TextStyle(
                                   color: Colors.white70,
@@ -591,8 +598,7 @@ class WorkOutsHomeWidget extends StatelessWidget {
                             ),
                           ],
                         ),
-                      ),
-                      margin: EdgeInsets.only(left: getWidth(context)*0.05,right: getWidth(context)*0.02,bottom: 20)
+                      )
                   ),
                 ],
               ),
