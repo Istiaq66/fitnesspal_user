@@ -33,15 +33,15 @@ class _HomePageState extends State<HomePage> {
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
+            HomePageTextSpacerWidget(
+              title: StringsManager.explore,
+            ),
+            CarouselSliderHomeWidget(),
             TodaysProgressWidget(),
             HomePageTextSpacerWidget(
               title: StringsManager.todaysAct,
             ),
             FitnessDataWidget(),
-            HomePageTextSpacerWidget(
-              title: StringsManager.explore,
-            ),
-            CarouselSliderHomeWidget(),
 
             WorkOutsHomeWidget(),
           ],
