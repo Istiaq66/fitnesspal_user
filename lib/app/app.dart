@@ -44,6 +44,7 @@ class _MyAppState extends State<MyApp> {
         )
       ],
       child: ScreenUtilInit(
+        useInheritedMediaQuery: true,
         builder: (context, child) => const MaterialApp(
           debugShowCheckedModeBanner: false,
           onGenerateRoute: RouteGenerator.getRoute,
