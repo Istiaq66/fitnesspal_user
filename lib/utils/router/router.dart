@@ -1,4 +1,4 @@
-import 'package:fitnesspal_user/presentation/settings/pages/chat_bot_page.dart';
+import 'package:fitnesspal_user/presentation/home/pages/chat_bot_page.dart';
 import 'package:fitnesspal_user/presentation/splash/pages/splash_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:fitnesspal_user/presentation/auth/pages/add_data_page.dart';

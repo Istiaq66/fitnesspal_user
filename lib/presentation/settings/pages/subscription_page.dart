@@ -22,9 +22,9 @@ class SubscriptionPage extends StatelessWidget {
             Text(StringsManager.subscriptionPackages, style: StyleManager.homePageTextSpacerTextStyle,),
             SizedBox(height: SizeManager.s20.h,),
 
-          SubscriptionCard(color: Colors.purpleAccent,name:'Basic',time:'1 month',money: '£10',),
-          SubscriptionCard(color: Colors.pinkAccent,name:'Standard',time:'6 month',money: '£50',),
-          SubscriptionCard(color: Colors.deepOrangeAccent,name:'Premium',time:'1 year',money: '£80',),
+          SubscriptionCard(color: Colors.purpleAccent,name:'Basic',time:'1 month',money: '1000tk',),
+          SubscriptionCard(color: Colors.pinkAccent,name:'Standard',time:'6 month',money: '1500tk',),
+          SubscriptionCard(color: Colors.deepOrangeAccent,name:'Premium',time:'1 year',money: '2000tk',),
         ],),
       ),
     );

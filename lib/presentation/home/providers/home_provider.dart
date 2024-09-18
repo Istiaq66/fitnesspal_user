@@ -120,4 +120,13 @@ class HomeProvider with ChangeNotifier {
     usersBMI = (weight / (heightInMeters * heightInMeters));
     return usersBMI;
   }
+
+
+  bool _isVisible = true;
+  bool get isVisible => _isVisible;
+
+  void setVisibility(){
+    _isVisible = !_isVisible;
+    notifyListeners();
+  }
 }
