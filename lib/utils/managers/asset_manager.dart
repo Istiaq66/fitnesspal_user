@@ -17,6 +17,7 @@ class ImageManager {
   static const carousel4WP = '$imagePath/carousel4.jpg';
   static const carousel5WP = '$imagePath/carousel5.jpg';
   static const chatBot = '$imagePath/bot.png';
+  static const stepCounter = '$imagePath/step_counter.png';
   static const man = '$imagePath/man.webp';
   static const woman = '$imagePath/woman.webp';
   static const weightIc = '$imagePath/weight_ic.png';

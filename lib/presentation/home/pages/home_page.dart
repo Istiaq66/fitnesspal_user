@@ -59,7 +59,8 @@ class _HomePageState extends State<HomePage> {
         builder: (context,homeProvider,_) {
           return Scaffold(
             backgroundColor: ColorManager.darkGrey,
-            floatingActionButton: homeProvider.isVisible ? InkWell(child: Image.asset(ImageManager.chatBot,height: 50,),
+            floatingActionButton: homeProvider.isVisible ? InkWell( customBorder: const CircleBorder(),
+              child: Image.asset(ImageManager.chatBot,height: 50,),
                 onTap: () => Navigator.of(context).pushNamed(Routes.chatBot),
             ) : const SizedBox(),
             body: SingleChildScrollView(

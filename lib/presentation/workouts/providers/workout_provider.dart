@@ -1,6 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:pedometer/pedometer.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:fitnesspal_user/model/workout_model.dart';
 
 class WorkoutProvider with ChangeNotifier {
@@ -330,5 +332,78 @@ class WorkoutProvider with ChangeNotifier {
       notifyListeners();
       rethrow;
     }
+  }
+
+
+
+
+
+  ///---Counter---///
+  int _count = 0;
+  int get count => _count;
+
+  late Stream<StepCount> _stepCountStream;
+  late Stream<PedestrianStatus> _pedestrianStatusStream;
+  String _status = '?', _steps = '?';
+
+  String get steps => _steps;
+  String get status => _status;
+
+  void increment(){
+    _count++;
+    notifyListeners();
+  }
+
+
+  void onStepCount(StepCount event) {
+    debugPrint('========+++++>>>>>event$event');
+    _steps = event.steps.toString();
+    notifyListeners();
+  }
+
+  void onPedestrianStatusChanged(PedestrianStatus event) {
+    print(event);
+    _status = event.status;
+    notifyListeners();
+  }
+
+  void onPedestrianStatusError(error) {
+    print('onPedestrianStatusError: $error');
+    _status = 'Pedestrian Status not available';
+    print(_status);
+    notifyListeners();
+  }
+
+  void onStepCountError(error) {
+    print('onStepCountError: $error');
+    _steps = 'Step Count not available';
+    notifyListeners();
+  }
+
+  Future<bool> _checkActivityRecognitionPermission() async {
+    bool granted = await Permission.activityRecognition.isGranted;
+
+    if (!granted) {
+      granted = await Permission.activityRecognition.request() ==
+          PermissionStatus.granted;
+    }
+
+    return granted;
+  }
+
+  Future<void> initPlatformState(bool mounted) async {
+    bool granted = await _checkActivityRecognitionPermission();
+    if (!granted) {
+      /// tell user, the app will not work
+    }
+    debugPrint('========+++++>>>>>>1');
+    _pedestrianStatusStream = Pedometer.pedestrianStatusStream;
+    (_pedestrianStatusStream.listen(onPedestrianStatusChanged))
+        .onError(onPedestrianStatusError);
+    debugPrint('========+++++>>>>>>2');
+    _stepCountStream = Pedometer.stepCountStream;
+    _stepCountStream.listen(onStepCount).onError(onStepCountError);
+    debugPrint('========+++++>>>>>>3');
+    if (!mounted) return;
   }
 }

@@ -47,7 +47,7 @@ class _ChatBotPageState extends State<ChatBotPage> {
         backgroundColor: ColorManager.darkGrey,
         centerTitle: true,
         title: const Text(
-          "Fitness Pal",style: TextStyle(color: ColorManager.white,),
+          "FitnessPal Bot",style: TextStyle(color: ColorManager.white,),
         ),
       ),
       body: _buildUI(),

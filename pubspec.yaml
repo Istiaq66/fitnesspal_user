@@ -49,6 +49,9 @@ dependencies:
   flutter_gemini: ^2.0.3
   image_picker: ^1.0.7
   dash_chat_2: ^0.0.20
+  syncfusion_flutter_gauges: ^20.3.61
+  pedometer: ^4.0.2
+  permission_handler: ^11.3.1
 
 dev_dependencies:
   flutter_test:
