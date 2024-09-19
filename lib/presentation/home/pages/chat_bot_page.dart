@@ -58,6 +58,7 @@ class _ChatBotPageState extends State<ChatBotPage> {
     return DashChat(
       messageOptions: const MessageOptions(
         currentUserContainerColor: ColorManager.blue ,
+        containerColor: ColorManager.darkGrey,
         textColor: Colors.white,
       ),
       inputOptions: InputOptions(
