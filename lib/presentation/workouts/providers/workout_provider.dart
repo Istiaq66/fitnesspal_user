@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:pedometer/pedometer.dart';
 import 'package:permission_handler/permission_handler.dart';
@@ -339,45 +340,54 @@ class WorkoutProvider with ChangeNotifier {
 
 
   ///---Counter---///
-  int _count = 0;
+  final int _count = 0;
   int get count => _count;
 
   late Stream<StepCount> _stepCountStream;
   late Stream<PedestrianStatus> _pedestrianStatusStream;
-  String _status = '?', _steps = '?';
+  String _status = 'Status not available';
+  int _steps = 0;
 
-  String get steps => _steps;
+  int get steps => _steps;
   String get status => _status;
 
-  void increment(){
-    _count++;
-    notifyListeners();
-  }
 
 
   void onStepCount(StepCount event) {
     debugPrint('========+++++>>>>>event$event');
-    _steps = event.steps.toString();
-    notifyListeners();
+    _steps = event.steps;
+    notifyListeners()
+    ;
   }
 
   void onPedestrianStatusChanged(PedestrianStatus event) {
-    print(event);
+    if (kDebugMode) {
+      print(event);
+    }
     _status = event.status;
-    notifyListeners();
+    notifyListeners()
+    ;
   }
 
   void onPedestrianStatusError(error) {
-    print('onPedestrianStatusError: $error');
+    if (kDebugMode) {
+      print('onPedestrianStatusError: $error');
+    }
     _status = 'Pedestrian Status not available';
-    print(_status);
-    notifyListeners();
+    if (kDebugMode) {
+      print(_status);
+    }
+    notifyListeners()
+    ;
   }
 
   void onStepCountError(error) {
-    print('onStepCountError: $error');
-    _steps = 'Step Count not available';
-    notifyListeners();
+    if (kDebugMode) {
+      print('onStepCountError: $error');
+    }
+    _status = 'Step Count not available';
+    notifyListeners()
+    ;
   }
 
   Future<bool> _checkActivityRecognitionPermission() async {

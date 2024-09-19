@@ -17,6 +17,11 @@ class _StepCounterPageState extends State<StepCounterPage> {
   @override
   void initState() {
     super.initState();
+    setup();
+  }
+
+  Future<void> setup() async {
+    await Provider.of<WorkoutProvider>(context, listen: false).initPlatformState(mounted);
   }
 
   @override
@@ -71,10 +76,10 @@ class _StepCounterPageState extends State<StepCounterPage> {
                           startWidth: 10,
                           endWidth: 10)
                     ], pointers:  <GaugePointer>[
-                      NeedlePointer(value: double.tryParse(workoutProvider.steps) ?? 0)
+                      NeedlePointer(value: double.tryParse(workoutProvider.steps.toString()) ?? 0)
                     ], annotations:   <GaugeAnnotation>[
                       GaugeAnnotation(
-                          widget: Text(workoutProvider.steps,
+                          widget: Text(workoutProvider.steps.toString(),
                               style: const TextStyle(
                                   fontSize: 25, fontWeight: FontWeight.bold)),
                           angle: 90,
@@ -84,11 +89,33 @@ class _StepCounterPageState extends State<StepCounterPage> {
               SizedBox(
                 height: MediaQuery.of(context).size.height * 0.04,
               ),
-              Text(workoutProvider.steps),
+              Text(workoutProvider.steps.toString()),
+              const SizedBox(height: 20,),
+              Text(workoutProvider.status),
               ElevatedButton(
                 child: const Text('Press'),
                 onPressed: () {
                   workoutProvider.initPlatformState(mounted);
+                  // Get.find<MyController>().increment();
+                  // Get.snackbar("SnackBar Title", "This is a Snack bar", snackPosition: SnackPosition.BOTTOM);
+
+                  // Get.defaultDialog(title: "Alert", middleText: "This is middle text");
+
+                  /*Get.bottomSheet(Wrap(
+                          children: [
+                            ListTile(
+                              leading: Icon(Icons.wb_sunny_outlined),
+                              title: Text("Light Theme"),
+                              onTap: () {Get.changeTheme(ThemeData.light());},
+                            ),
+                            ListTile(
+                              leading: Icon(Icons.wb_sunny),
+                              title: Text("Dark Theme"),
+                              onTap: () {Get.changeTheme(ThemeData.dark());},
+                            )
+                          ],
+                        )
+                        );*/
                 },
               ),
             ],
