@@ -27,7 +27,6 @@ class _StepCounterPageState extends State<StepCounterPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorManager.white2,
       appBar: AppBar(
         leading: IconButton(
           splashColor: ColorManager.grey3,
@@ -52,31 +51,12 @@ class _StepCounterPageState extends State<StepCounterPage> {
             children: [
               SfRadialGauge(
                   title: const GaugeTitle(
-                      text: 'Speedometer',
+                      text: 'Total steps today',
                       textStyle:
                       TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
                   axes: <RadialAxis>[
-                    RadialAxis(minimum: 0, maximum: 150, ranges: <GaugeRange>[
-                      GaugeRange(
-                          startValue: 0,
-                          endValue: 50,
-                          color: Colors.green,
-                          startWidth: 10,
-                          endWidth: 10),
-                      GaugeRange(
-                          startValue: 50,
-                          endValue: 100,
-                          color: Colors.orange,
-                          startWidth: 10,
-                          endWidth: 10),
-                      GaugeRange(
-                          startValue: 100,
-                          endValue: 150,
-                          color: Colors.red,
-                          startWidth: 10,
-                          endWidth: 10)
-                    ], pointers:  <GaugePointer>[
-                      NeedlePointer(value: double.tryParse(workoutProvider.steps.toString()) ?? 0)
+                    RadialAxis(minimum: 0, maximum: 10000, pointers:  <RangePointer>[
+                      RangePointer(value: double.tryParse(workoutProvider.steps.toString()) ?? 0, color: ColorManager.limeGreen,)
                     ], annotations:   <GaugeAnnotation>[
                       GaugeAnnotation(
                           widget: Text(workoutProvider.steps.toString(),
@@ -96,26 +76,6 @@ class _StepCounterPageState extends State<StepCounterPage> {
                 child: const Text('Press'),
                 onPressed: () {
                   workoutProvider.initPlatformState(mounted);
-                  // Get.find<MyController>().increment();
-                  // Get.snackbar("SnackBar Title", "This is a Snack bar", snackPosition: SnackPosition.BOTTOM);
-
-                  // Get.defaultDialog(title: "Alert", middleText: "This is middle text");
-
-                  /*Get.bottomSheet(Wrap(
-                          children: [
-                            ListTile(
-                              leading: Icon(Icons.wb_sunny_outlined),
-                              title: Text("Light Theme"),
-                              onTap: () {Get.changeTheme(ThemeData.light());},
-                            ),
-                            ListTile(
-                              leading: Icon(Icons.wb_sunny),
-                              title: Text("Dark Theme"),
-                              onTap: () {Get.changeTheme(ThemeData.dark());},
-                            )
-                          ],
-                        )
-                        );*/
                 },
               ),
             ],

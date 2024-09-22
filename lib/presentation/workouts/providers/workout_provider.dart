@@ -1,7 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/foundation.dart';
-import 'package:flutter/material.dart';
 import 'package:pedometer/pedometer.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:fitnesspal_user/model/workout_model.dart';
@@ -354,10 +353,9 @@ class WorkoutProvider with ChangeNotifier {
 
 
   void onStepCount(StepCount event) {
-    debugPrint('========+++++>>>>>event$event');
+    debugPrint('========>>>>>event$event');
     _steps = event.steps;
-    notifyListeners()
-    ;
+    notifyListeners();
   }
 
   void onPedestrianStatusChanged(PedestrianStatus event) {
@@ -365,8 +363,7 @@ class WorkoutProvider with ChangeNotifier {
       print(event);
     }
     _status = event.status;
-    notifyListeners()
-    ;
+    notifyListeners();
   }
 
   void onPedestrianStatusError(error) {
@@ -377,8 +374,7 @@ class WorkoutProvider with ChangeNotifier {
     if (kDebugMode) {
       print(_status);
     }
-    notifyListeners()
-    ;
+    notifyListeners();
   }
 
   void onStepCountError(error) {
@@ -386,8 +382,7 @@ class WorkoutProvider with ChangeNotifier {
       print('onStepCountError: $error');
     }
     _status = 'Step Count not available';
-    notifyListeners()
-    ;
+    notifyListeners();
   }
 
   Future<bool> _checkActivityRecognitionPermission() async {

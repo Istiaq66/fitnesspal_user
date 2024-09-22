@@ -29,7 +29,7 @@ class _SplashScreenState extends State<SplashScreen> {
     _checkInitialConnectivity();
 
     // Listen for connectivity changes
-    _onConnectivityChanged = Connectivity().onConnectivityChanged.listen((ConnectivityResult result) {
+    _onConnectivityChanged = _onConnectivityChanged = Connectivity().onConnectivityChanged.listen((ConnectivityResult result) {
       bool previouslyNotConnected = isNotConnected;
       isNotConnected = result != ConnectivityResult.wifi && result != ConnectivityResult.mobile;
 
