@@ -20,7 +20,7 @@ class StepStatusWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 140,
+      height: 130,
       decoration: BoxDecoration(
         gradient: const LinearGradient(
           colors: [Colors.white, ColorManager.limeGreen], // Lime color
@@ -47,27 +47,24 @@ class StepStatusWidget extends StatelessWidget {
               children: [
                 Icon(
                   iconData,
-                  size: 50,
+                  size: 40,
                 ),
                 const SizedBox(width: 4.0),
                 Text.rich(
+                  textAlign: TextAlign.center,
                   TextSpan(
                     children: [
                       TextSpan(
                         text: number.toString(),
-                        style: Theme.of(context).textTheme.headlineMedium!.copyWith(
-                          color: Theme.of(context).primaryColor,
+                        style: Theme.of(context).textTheme.headlineSmall!.copyWith(
+                          color: Theme.of(context).primaryColor,overflow: TextOverflow.ellipsis
                         ),
                       ),
                       if (unit.isNotEmpty)
                         TextSpan(
                           text: ' $unit',
-                          style: Theme.of(context)
-                              .textTheme
-                              .titleMedium!
-                              .copyWith(
-                            color:
-                            Theme.of(context).scaffoldBackgroundColor,
+                          style: Theme.of(context).textTheme.titleSmall!.copyWith(
+                            color: ColorManager.red
                           ),
                         ),
                     ],
@@ -76,10 +73,12 @@ class StepStatusWidget extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 8.0),
-            Text(
-              mainTitle,  textAlign: TextAlign.center,
-              style: Theme.of(context).textTheme.titleMedium!.copyWith(
-                color: Theme.of(context).primaryColor,
+            Expanded(
+              child: Text(
+                mainTitle,  textAlign: TextAlign.center,
+                style: Theme.of(context).textTheme.titleMedium!.copyWith(
+                  color: Theme.of(context).primaryColor,
+                ),
               ),
             ),
           ],

@@ -1,5 +1,6 @@
 import 'package:fitnesspal_user/presentation/workouts/providers/workout_provider.dart';
 import 'package:fitnesspal_user/presentation/workouts/widgets/step_status_widget.dart';
+import 'package:fitnesspal_user/utils/managers/asset_manager.dart';
 import 'package:fitnesspal_user/utils/managers/color_manager.dart';
 import 'package:fitnesspal_user/utils/managers/value_manager.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
@@ -58,7 +59,7 @@ class _StepCounterPageState extends State<StepCounterPage> {
                     child: Padding(padding: const EdgeInsets.all(10),
                       child: StepStatusWidget(color: ColorManager.limeGreen,
                           mainTitle: 'Total calorie burned', number: workoutProvider.caloriesBurned.toString(),
-                          iconData: Icons.local_fire_department
+                          iconData: Icons.local_fire_department,unit: 'Kcal',
                        ),
                     ),
                   ),
@@ -76,24 +77,91 @@ class _StepCounterPageState extends State<StepCounterPage> {
                 ],
               ),  const SizedBox(height: 30),
 
-              SfRadialGauge(
-                  title: const GaugeTitle(text: 'Total todayStepCount today', textStyle: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
+            ///---Step---///
+            SizedBox(height: 300, width: 300,
+              child: SfRadialGauge(
+              title: const GaugeTitle(
+                text: 'Total todayStepCount today',
+                textStyle: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+              ),
+              axes: [
+                RadialAxis(
+                  minimum: 0,
+                  maximum: 2000,  // Maximum distance (e.g., 10 km)
+                  startAngle: 0,  // Start of the circle (0°)
+                  endAngle: 360,  // End of the circle (360° for full circular gauge)
+                  showLabels: false,  // Hide axis labels if not needed
+                  showTicks: false,   // Hide ticks if not needed
+                  pointers: <GaugePointer>[
+                    RangePointer(
+                      value: workoutProvider.todayStepCount.toDouble(),  // Distance covered value
+                      width: 10,
+                      color: Colors.blue,  // Single color for the entire gauge
+                      cornerStyle: CornerStyle.bothCurve,  // Rounded pointer edges for a smooth look
+                    ),
+                    WidgetPointer(
+                      value: workoutProvider.todayStepCount.toDouble(),  // Same value for user image pointer
+                      child: const CircleAvatar(
+                        backgroundImage: AssetImage(ImageManager.exerciseLogo),  // User image as pointer
+                        radius: 15,  // Adjust avatar size
+                      ),
+                    ),
+                  ],
+                  annotations: <GaugeAnnotation>[
+                    GaugeAnnotation(
+                      widget: Text(
+                        '${workoutProvider.todayStepCount}/2000',
+                        style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
+                      ),
+                      angle: 90,
+                      positionFactor: 0.5,  // Positioning inside the gauge
+                    ),
+                  ],
+                ),
+              ],),
+            ),
+            const SizedBox(height: 10,),
+
+            ///---Distance---///
+            SizedBox(height: 300, width: 300,
+              child: SfRadialGauge(
+                  title: const GaugeTitle(
+                      text: 'Distance Covered',
+                      textStyle:
+                      TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
                   axes: <RadialAxis>[
-                    RadialAxis(minimum: 0, maximum: 2000, pointers: <RangePointer>[
-                      RangePointer(
-                        value: double.tryParse(workoutProvider.todayStepCount.toString()) ?? 0,
-                        color: ColorManager.limeGreen,
-                      )
-                    ], annotations: <GaugeAnnotation>[
+                    RadialAxis(minimum: 0, maximum: 150, ranges: <GaugeRange>[
+                      GaugeRange(
+                          startValue: 0,
+                          endValue: 50,
+                          color: Colors.green,
+                          startWidth: 10,
+                          endWidth: 10),
+                      GaugeRange(
+                          startValue: 50,
+                          endValue: 100,
+                          color: Colors.orange,
+                          startWidth: 10,
+                          endWidth: 10),
+                      GaugeRange(
+                          startValue: 100,
+                          endValue: 150,
+                          color: Colors.red,
+                          startWidth: 10,
+                          endWidth: 10)
+                    ], pointers:  <GaugePointer>[
+                      NeedlePointer(value: workoutProvider.distanceKm.toDouble())
+                    ], annotations:   <GaugeAnnotation>[
                       GaugeAnnotation(
-                          widget:
-                              Text(workoutProvider.todayStepCount.toString(), style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+                          widget: Text('${workoutProvider.distanceKm.toStringAsFixed(2)} km',
+                              style: const TextStyle(
+                                  fontSize: 25, fontWeight: FontWeight.bold)),
                           angle: 90,
                           positionFactor: 0.5)
                     ])
                   ]),
-            ],
-          ),
+            ),
+          ]),
         );
       }),
     );

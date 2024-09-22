@@ -425,6 +425,7 @@ class WorkoutProvider with ChangeNotifier {
     // Check if the saved counter needs to be reset
     if (value < savedStepCount) {
       savedStepCount = 0;
+      reset();
       await prefs.setInt(StringsManager.savedStepCount, savedStepCount);
     }
 
@@ -447,15 +448,19 @@ class WorkoutProvider with ChangeNotifier {
   double _caloriesBurned = 0.0;
 
   void _calculateDistance() {
-    // Assuming an average step length of 0.78 meters
     _distanceKm = (_steps * 0.78) / 1000; // Convert meters to kilometers
     _distanceKm = double.parse(_distanceKm.toStringAsFixed(2));
   }
 
   void _calculateCalories() {
     // Assuming 0.04 calories burned per step
-    _caloriesBurned = _steps * 0.04; // Calculate calories burned
-    _caloriesBurned = double.parse(_caloriesBurned.toStringAsFixed(2));
+    _caloriesBurned = _steps * 0.04; // Calculate calories burned in calories
+
+    // Convert to kilocalories (kcal)
+    double kcalBurned = _caloriesBurned / 1000;
+
+    // Round to 2 decimal places
+    _caloriesBurned = double.parse(kcalBurned.toStringAsFixed(2));
   }
 
   void reset() {
