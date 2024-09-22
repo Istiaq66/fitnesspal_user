@@ -51,14 +51,29 @@ class _StepCounterPageState extends State<StepCounterPage> {
       body: Consumer<WorkoutProvider>(builder: (context, workoutProvider, _) {
         return SingleChildScrollView(
           child: Column(children: [
-              Padding(padding: const EdgeInsets.all(8.0),
-                child: StepStatusWidget( color: ColorManager.limeGreen,
-                  mainTitle: workoutProvider.status,number: workoutProvider.steps.toString(),
-                  iconData: workoutProvider.status == 'walking'
-                    ? Icons.directions_walk
-                    : workoutProvider.status == 'stopped'
-                    ? Icons.accessibility_new
-                    : Icons.error,),
+            const SizedBox(height: 20),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                  Expanded(
+                    child: Padding(padding: const EdgeInsets.all(8.0),
+                      child: StepStatusWidget(color: ColorManager.limeGreen,
+                          mainTitle: 'Total calorie burned', number: workoutProvider.caloriesBurned.toString(),
+                          iconData: Icons.local_fire_department
+                       ),
+                    ),
+                  ),
+                  Expanded(
+                    child: Padding(padding: const EdgeInsets.all(8.0),
+                      child: StepStatusWidget(color: ColorManager.limeGreen,
+                        mainTitle: workoutProvider.status,number: workoutProvider.steps.toString(),
+                        iconData: workoutProvider.status == 'walking'
+                            ? Icons.directions_walk
+                            : workoutProvider.status == 'stopped'
+                            ? Icons.accessibility_new
+                            : Icons.error,),
+                    ),
+                  ),
+                ],
               ),  const SizedBox(height: 40),
 
               SfRadialGauge(

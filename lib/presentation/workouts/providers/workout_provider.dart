@@ -355,6 +355,8 @@ class WorkoutProvider with ChangeNotifier {
   void onStepCount(StepCount event) {
     debugPrint('========>>>>>event$event');
     _steps = event.steps;
+    _calculateDistance();
+    _calculateCalories();
     notifyListeners();
   }
 
@@ -411,4 +413,33 @@ class WorkoutProvider with ChangeNotifier {
     debugPrint('========+++++>>>>>>3');
     if (!mounted) return;
   }
+
+  String _stepCountValue = "0";
+  double _distanceKm = 0.0;
+  double _caloriesBurned = 0.0;
+
+  void _calculateDistance() {
+    // Assuming an average step length of 0.78 meters
+    _distanceKm = (_steps * 0.78) / 1000; // Convert meters to kilometers
+    _distanceKm = double.parse(_distanceKm.toStringAsFixed(2));
+  }
+
+  void _calculateCalories() {
+    // Assuming 0.04 calories burned per step
+    _caloriesBurned = _steps * 0.04; // Calculate calories burned
+    _caloriesBurned = double.parse(_caloriesBurned.toStringAsFixed(2));
+  }
+
+  void reset() {
+    _steps = 0;
+    _stepCountValue = "0";
+    _distanceKm = 0.0;
+    _caloriesBurned = 0.0;
+    notifyListeners();
+  }
+
+  // Getters
+  String get stepCountValue => _stepCountValue;
+  double get distanceKm => _distanceKm;
+  double get caloriesBurned => _caloriesBurned;
 }

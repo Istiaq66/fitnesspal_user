@@ -1,3 +1,4 @@
+import 'package:fitnesspal_user/utils/managers/color_manager.dart';
 import 'package:flutter/material.dart';
 
 class StepStatusWidget extends StatelessWidget {
@@ -20,7 +21,19 @@ class StepStatusWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return DecoratedBox(
       decoration: BoxDecoration(
-        color: color,
+        gradient: const LinearGradient(
+          colors: [Colors.white, ColorManager.limeGreen], // Lime color
+          begin: Alignment.topLeft,
+          end: Alignment.bottomRight,
+        ),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.grey.withOpacity(0.5), // Shadow color
+            offset: const Offset(0, 2), // X and Y offset
+            blurRadius: 5, // Spread of the shadow
+            spreadRadius: 1, // Size of the shadow
+          ),
+        ],
         borderRadius: BorderRadius.circular(16.0),
       ),
       child: Padding(
@@ -63,7 +76,7 @@ class StepStatusWidget extends StatelessWidget {
             ),
             const SizedBox(height: 8.0),
             Text(
-              mainTitle,
+              mainTitle,  textAlign: TextAlign.center,
               style: Theme.of(context).textTheme.titleMedium!.copyWith(
                 color: Theme.of(context).primaryColor,
               ),
