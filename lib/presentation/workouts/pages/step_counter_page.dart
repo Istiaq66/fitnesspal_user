@@ -55,7 +55,7 @@ class _StepCounterPageState extends State<StepCounterPage> {
             Row(mainAxisAlignment: MainAxisAlignment.spaceEvenly,
               children: [
                   Expanded(
-                    child: Padding(padding: const EdgeInsets.all(8.0),
+                    child: Padding(padding: const EdgeInsets.all(10),
                       child: StepStatusWidget(color: ColorManager.limeGreen,
                           mainTitle: 'Total calorie burned', number: workoutProvider.caloriesBurned.toString(),
                           iconData: Icons.local_fire_department
@@ -63,7 +63,7 @@ class _StepCounterPageState extends State<StepCounterPage> {
                     ),
                   ),
                   Expanded(
-                    child: Padding(padding: const EdgeInsets.all(8.0),
+                    child: Padding(padding: const EdgeInsets.all(10),
                       child: StepStatusWidget(color: ColorManager.limeGreen,
                         mainTitle: workoutProvider.status,number: workoutProvider.steps.toString(),
                         iconData: workoutProvider.status == 'walking'
@@ -74,7 +74,7 @@ class _StepCounterPageState extends State<StepCounterPage> {
                     ),
                   ),
                 ],
-              ),  const SizedBox(height: 40),
+              ),  const SizedBox(height: 30),
 
               SfRadialGauge(
                   title: const GaugeTitle(text: 'Total steps today', textStyle: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),

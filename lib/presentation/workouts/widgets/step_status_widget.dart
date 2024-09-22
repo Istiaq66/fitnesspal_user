@@ -19,7 +19,8 @@ class StepStatusWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return DecoratedBox(
+    return Container(
+      height: 140,
       decoration: BoxDecoration(
         gradient: const LinearGradient(
           colors: [Colors.white, ColorManager.limeGreen], // Lime color
