@@ -1,9 +1,11 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fitnesspal_user/utils/managers/string_manager.dart';
 import 'package:flutter/foundation.dart';
 import 'package:pedometer/pedometer.dart';
 import 'package:permission_handler/permission_handler.dart';
 import 'package:fitnesspal_user/model/workout_model.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class WorkoutProvider with ChangeNotifier {
   final List<WorkoutModel> _workouts = [];
@@ -346,6 +348,9 @@ class WorkoutProvider with ChangeNotifier {
   late Stream<PedestrianStatus> _pedestrianStatusStream;
   String _status = 'Status not available';
   int _steps = 0;
+  int savedStepCount = 0;
+  int todayStepCount = 0;
+  int lastDaySaved = 0;
 
   int get steps => _steps;
   String get status => _status;
@@ -357,6 +362,7 @@ class WorkoutProvider with ChangeNotifier {
     _steps = event.steps;
     _calculateDistance();
     _calculateCalories();
+    _saveStepCount(event.steps);
     notifyListeners();
   }
 
@@ -403,15 +409,37 @@ class WorkoutProvider with ChangeNotifier {
     if (!granted) {
       /// tell user, the app will not work
     }
-    debugPrint('========+++++>>>>>>1');
     _pedestrianStatusStream = Pedometer.pedestrianStatusStream;
     (_pedestrianStatusStream.listen(onPedestrianStatusChanged))
         .onError(onPedestrianStatusError);
-    debugPrint('========+++++>>>>>>2');
     _stepCountStream = Pedometer.stepCountStream;
     _stepCountStream.listen(onStepCount).onError(onStepCountError);
-    debugPrint('========+++++>>>>>>3');
     if (!mounted) return;
+  }
+
+  void _saveStepCount(int value) async {
+    final prefs = await SharedPreferences.getInstance();
+    savedStepCount = prefs.getInt(StringsManager.savedStepCount) ?? 0;
+    lastDaySaved = prefs.getInt(StringsManager.lastDaySaved) ?? 0;
+
+    // Check if the saved counter needs to be reset
+    if (value < savedStepCount) {
+      savedStepCount = 0;
+      await prefs.setInt(StringsManager.savedStepCount, savedStepCount);
+    }
+
+    // Get today's day number
+    int todayDayNo = DateTime.now().day;
+
+    // Reset saved count if it's a new day
+    if (lastDaySaved < todayDayNo) {
+      lastDaySaved = todayDayNo;
+      await prefs.setInt(StringsManager.lastDaySaved, lastDaySaved);
+      savedStepCount = value;
+      await prefs.setInt(StringsManager.savedStepCount, savedStepCount);
+    }
+
+    todayStepCount = value - savedStepCount;
   }
 
   String _stepCountValue = "0";

@@ -222,6 +222,9 @@ class StringsManager {
   static const String meditationUrl = 'https://www.youtube.com/watch?v=fz57mdSPgMI&t=81s&ab_channel=TEDxTalks';
 
 
+  ///--Shared Keys--///
+  static String savedStepCount = "savedStepCount";
+  static String lastDaySaved = "lastDaySaved";
 
   ///--Keys--//
   static String geminiApiKey = "AIzaSyBw_c5uDgDeTMAxtVIZJOKJrsH7wPejiso";

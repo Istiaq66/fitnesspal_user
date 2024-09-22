@@ -65,7 +65,7 @@ class _StepCounterPageState extends State<StepCounterPage> {
                   Expanded(
                     child: Padding(padding: const EdgeInsets.all(10),
                       child: StepStatusWidget(color: ColorManager.limeGreen,
-                        mainTitle: workoutProvider.status,number: workoutProvider.steps.toString(),
+                        mainTitle: workoutProvider.status,number: workoutProvider.todayStepCount.toString(),
                         iconData: workoutProvider.status == 'walking'
                             ? Icons.directions_walk
                             : workoutProvider.status == 'stopped'
@@ -77,17 +77,17 @@ class _StepCounterPageState extends State<StepCounterPage> {
               ),  const SizedBox(height: 30),
 
               SfRadialGauge(
-                  title: const GaugeTitle(text: 'Total steps today', textStyle: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
+                  title: const GaugeTitle(text: 'Total todayStepCount today', textStyle: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
                   axes: <RadialAxis>[
                     RadialAxis(minimum: 0, maximum: 2000, pointers: <RangePointer>[
                       RangePointer(
-                        value: double.tryParse(workoutProvider.steps.toString()) ?? 0,
+                        value: double.tryParse(workoutProvider.todayStepCount.toString()) ?? 0,
                         color: ColorManager.limeGreen,
                       )
                     ], annotations: <GaugeAnnotation>[
                       GaugeAnnotation(
                           widget:
-                              Text(workoutProvider.steps.toString(), style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
+                              Text(workoutProvider.todayStepCount.toString(), style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
                           angle: 90,
                           positionFactor: 0.5)
                     ])
