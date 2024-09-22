@@ -1,4 +1,5 @@
 import 'package:fitnesspal_user/presentation/workouts/providers/workout_provider.dart';
+import 'package:fitnesspal_user/presentation/workouts/widgets/step_status_widget.dart';
 import 'package:fitnesspal_user/utils/managers/color_manager.dart';
 import 'package:fitnesspal_user/utils/managers/value_manager.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
@@ -13,7 +14,6 @@ class StepCounterPage extends StatefulWidget {
 }
 
 class _StepCounterPageState extends State<StepCounterPage> {
-
   @override
   void initState() {
     super.initState();
@@ -42,42 +42,41 @@ class _StepCounterPageState extends State<StepCounterPage> {
         backgroundColor: ColorManager.darkGrey,
         centerTitle: true,
         title: const Text(
-          "Step Counter",style: TextStyle(color: ColorManager.white,),
+          "Step Counter",
+          style: TextStyle(
+            color: ColorManager.white,
+          ),
         ),
       ),
-      body: Consumer<WorkoutProvider>(builder: (context,workoutProvider,_) {
-        return Center(
-          child: Column(
-            children: [
+      body: Consumer<WorkoutProvider>(builder: (context, workoutProvider, _) {
+        return SingleChildScrollView(
+          child: Column(children: [
+              Padding(padding: const EdgeInsets.all(8.0),
+                child: StepStatusWidget( color: ColorManager.limeGreen,
+                  mainTitle: workoutProvider.status,number: workoutProvider.steps.toString(),
+                  iconData: workoutProvider.status == 'walking'
+                    ? Icons.directions_walk
+                    : workoutProvider.status == 'stopped'
+                    ? Icons.accessibility_new
+                    : Icons.error,),
+              ),  const SizedBox(height: 40),
+
               SfRadialGauge(
-                  title: const GaugeTitle(
-                      text: 'Total steps today',
-                      textStyle:
-                      TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
+                  title: const GaugeTitle(text: 'Total steps today', textStyle: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold)),
                   axes: <RadialAxis>[
-                    RadialAxis(minimum: 0, maximum: 10000, pointers:  <RangePointer>[
-                      RangePointer(value: double.tryParse(workoutProvider.steps.toString()) ?? 0, color: ColorManager.limeGreen,)
-                    ], annotations:   <GaugeAnnotation>[
+                    RadialAxis(minimum: 0, maximum: 2000, pointers: <RangePointer>[
+                      RangePointer(
+                        value: double.tryParse(workoutProvider.steps.toString()) ?? 0,
+                        color: ColorManager.limeGreen,
+                      )
+                    ], annotations: <GaugeAnnotation>[
                       GaugeAnnotation(
-                          widget: Text(workoutProvider.steps.toString(),
-                              style: const TextStyle(
-                                  fontSize: 25, fontWeight: FontWeight.bold)),
+                          widget:
+                              Text(workoutProvider.steps.toString(), style: const TextStyle(fontSize: 25, fontWeight: FontWeight.bold)),
                           angle: 90,
                           positionFactor: 0.5)
                     ])
                   ]),
-              SizedBox(
-                height: MediaQuery.of(context).size.height * 0.04,
-              ),
-              Text(workoutProvider.steps.toString()),
-              const SizedBox(height: 20,),
-              Text(workoutProvider.status),
-              ElevatedButton(
-                child: const Text('Press'),
-                onPressed: () {
-                  workoutProvider.initPlatformState(mounted);
-                },
-              ),
             ],
           ),
         );
