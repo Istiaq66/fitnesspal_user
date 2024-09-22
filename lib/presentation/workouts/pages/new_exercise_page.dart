@@ -90,21 +90,25 @@ class _NewExercisePageState extends State<NewExercisePage> {
                     ),
                   ),
                   child: DropdownButtonHideUnderline(
-                    child: Container(
-                      decoration: BoxDecoration(
-                        color: ColorManager.darkGrey,
-                        borderRadius: BorderRadius.circular(RadiusManager.r15.r),
-                      ),
-                      child: DropdownButton2(
-                        onChanged: _onChangedExercise,
-                        value: _valueExercise,
-                        hint: Text(
-                          StringsManager.exerciseHint,
-                          style: StyleManager.registerTextfieldTextStyle,
+                    child: DropdownButton2(
+                      dropdownStyleData: DropdownStyleData(
+                        maxHeight: deviceHeight / 2,
+                        decoration: BoxDecoration(
+                          color: ColorManager.darkGrey,
+                          borderRadius: BorderRadius.circular(
+                            RadiusManager.r15.r,
+                          ),
                         ),
-                        items: ListManager.exercisesList,
                       ),
-                    )
+                      onChanged: _onChangedExercise,
+                      value: _valueExercise,
+                      iconStyleData: const IconStyleData(iconSize: SizeManager.s0,),
+                      hint: Text(
+                        StringsManager.exerciseHint,
+                        style: StyleManager.registerTextfieldTextStyle,
+                      ),
+                      items: ListManager.exercisesList,
+                    ),
                   ),
                 ),
               ),

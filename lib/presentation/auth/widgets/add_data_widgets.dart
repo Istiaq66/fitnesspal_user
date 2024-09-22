@@ -124,37 +124,40 @@ class AddDataWidgets extends StatelessWidget {
             ),
           ),
           child: DropdownButtonHideUnderline(
-            child: Container(
-              decoration: BoxDecoration(
-                color: ColorManager.darkGrey,
-                borderRadius: BorderRadius.circular(
-                  RadiusManager.r15.r,
+            child: DropdownButton2(
+              dropdownStyleData: DropdownStyleData(
+                decoration: BoxDecoration(
+                  color: ColorManager.darkGrey,
+                  borderRadius: BorderRadius.circular(
+                    RadiusManager.r15.r,
+                  ),
                 ),
               ),
-              child: DropdownButton2(
-                onChanged: onChangedGender,
-                value: valueGender,
-                hint: Text(
-                  StringsManager.genderHint,
-                  style: StyleManager.registerTextfieldTextStyle,
-                ),
-                items: [
-                  DropdownMenuItem(
-                    value: StringsManager.genderManHint,
-                    child: Text(
-                      StringsManager.genderManHint,
-                      style: StyleManager.registerTextfieldTextStyle,
-                    ),
-                  ),
-                  DropdownMenuItem(
-                    value: StringsManager.genderWomanHint,
-                    child: Text(
-                      StringsManager.genderWomanHint,
-                      style: StyleManager.registerTextfieldTextStyle,
-                    ),
-                  ),
-                ],
+              onChanged: onChangedGender,
+              value: valueGender,
+              iconStyleData: const IconStyleData(
+              iconSize: SizeManager.s0,
+            ),
+              hint: Text(
+                StringsManager.genderHint,
+                style: StyleManager.registerTextfieldTextStyle,
               ),
+              items: [
+                DropdownMenuItem(
+                  value: StringsManager.genderManHint,
+                  child: Text(
+                    StringsManager.genderManHint,
+                    style: StyleManager.registerTextfieldTextStyle,
+                  ),
+                ),
+                DropdownMenuItem(
+                  value: StringsManager.genderWomanHint,
+                  child: Text(
+                    StringsManager.genderWomanHint,
+                    style: StyleManager.registerTextfieldTextStyle,
+                  ),
+                ),
+              ],
             ),
           ),
         ),
@@ -177,58 +180,61 @@ class AddDataWidgets extends StatelessWidget {
             ),
           ),
           child: DropdownButtonHideUnderline(
-            child: Container(
-              decoration: BoxDecoration(
-                color: ColorManager.darkGrey,
-                borderRadius: BorderRadius.circular(
-                  RadiusManager.r15.r,
+            child: DropdownButton2(
+              dropdownStyleData: DropdownStyleData(
+                decoration: BoxDecoration(
+                  color: ColorManager.darkGrey,
+                  borderRadius: BorderRadius.circular(
+                    RadiusManager.r15.r,
+                  ),
                 ),
               ),
-              child: DropdownButton2(
-                onChanged: onChangedActivity,
-                value: valueActivity,
-                hint: Text(
-                  StringsManager.activityHint,
-                  style: StyleManager.registerTextfieldTextStyle,
-                ),
-                items: [
-                  DropdownMenuItem(
-                    value: StringsManager.activityLowHint,
-                    child: Text(
-                      StringsManager.activityLowHint,
-                      style: StyleManager.registerTextfieldTextStyle,
-                    ),
-                  ),
-                  DropdownMenuItem(
-                    value: StringsManager.activityLightHint,
-                    child: Text(
-                      StringsManager.activityLightHint,
-                      style: StyleManager.registerTextfieldTextStyle,
-                    ),
-                  ),
-                  DropdownMenuItem(
-                    value: StringsManager.activityModerateHint,
-                    child: Text(
-                      StringsManager.activityModerateHint,
-                      style: StyleManager.registerTextfieldTextStyle,
-                    ),
-                  ),
-                  DropdownMenuItem(
-                    value: StringsManager.activityHighHint,
-                    child: Text(
-                      StringsManager.activityHighHint,
-                      style: StyleManager.registerTextfieldTextStyle,
-                    ),
-                  ),
-                  DropdownMenuItem(
-                    value: StringsManager.activityVeryHighHint,
-                    child: Text(
-                      StringsManager.activityVeryHighHint,
-                      style: StyleManager.registerTextfieldTextStyle,
-                    ),
-                  ),
-                ],
+              onChanged: onChangedActivity,
+              value: valueActivity,
+              iconStyleData: const IconStyleData(
+              iconSize: SizeManager.s0,
+            ),
+              hint: Text(
+                StringsManager.activityHint,
+                style: StyleManager.registerTextfieldTextStyle,
               ),
+              items: [
+                DropdownMenuItem(
+                  value: StringsManager.activityLowHint,
+                  child: Text(
+                    StringsManager.activityLowHint,
+                    style: StyleManager.registerTextfieldTextStyle,
+                  ),
+                ),
+                DropdownMenuItem(
+                  value: StringsManager.activityLightHint,
+                  child: Text(
+                    StringsManager.activityLightHint,
+                    style: StyleManager.registerTextfieldTextStyle,
+                  ),
+                ),
+                DropdownMenuItem(
+                  value: StringsManager.activityModerateHint,
+                  child: Text(
+                    StringsManager.activityModerateHint,
+                    style: StyleManager.registerTextfieldTextStyle,
+                  ),
+                ),
+                DropdownMenuItem(
+                  value: StringsManager.activityHighHint,
+                  child: Text(
+                    StringsManager.activityHighHint,
+                    style: StyleManager.registerTextfieldTextStyle,
+                  ),
+                ),
+                DropdownMenuItem(
+                  value: StringsManager.activityVeryHighHint,
+                  child: Text(
+                    StringsManager.activityVeryHighHint,
+                    style: StyleManager.registerTextfieldTextStyle,
+                  ),
+                ),
+              ],
             ),
           ),
         ),
@@ -251,43 +257,47 @@ class AddDataWidgets extends StatelessWidget {
             ),
           ),
           child: DropdownButtonHideUnderline(
-            child: Container(
-              decoration: BoxDecoration(
-              color: ColorManager.darkGrey,
-              borderRadius: BorderRadius.circular(
-                RadiusManager.r15.r,
-              ),),
-              child: DropdownButton2(
-                onChanged: onChangedGoal,
-                value: valueGoal,
-                hint: Text(
-                  StringsManager.goalHint,
-                  style: StyleManager.registerTextfieldTextStyle,
+            child: DropdownButton2(
+              dropdownStyleData: DropdownStyleData(
+                decoration: BoxDecoration(
+                  color: ColorManager.darkGrey,
+                  borderRadius: BorderRadius.circular(
+                    RadiusManager.r15.r,
+                  ),
                 ),
-                items: [
-                  DropdownMenuItem(
-                    value: StringsManager.lose,
-                    child: Text(
-                      StringsManager.loseWeightHint,
-                      style: StyleManager.registerTextfieldTextStyle,
-                    ),
-                  ),
-                  DropdownMenuItem(
-                    value: StringsManager.maintain,
-                    child: Text(
-                      StringsManager.maintainWeightHint,
-                      style: StyleManager.registerTextfieldTextStyle,
-                    ),
-                  ),
-                  DropdownMenuItem(
-                    value: StringsManager.gain,
-                    child: Text(
-                      StringsManager.gainWeightHint,
-                      style: StyleManager.registerTextfieldTextStyle,
-                    ),
-                  ),
-                ],
               ),
+              onChanged: onChangedGoal,
+              value: valueGoal,
+              iconStyleData: const IconStyleData(
+                iconSize: SizeManager.s0,
+              ),
+              hint: Text(
+                StringsManager.goalHint,
+                style: StyleManager.registerTextfieldTextStyle,
+              ),
+              items: [
+                DropdownMenuItem(
+                  value: StringsManager.lose,
+                  child: Text(
+                    StringsManager.loseWeightHint,
+                    style: StyleManager.registerTextfieldTextStyle,
+                  ),
+                ),
+                DropdownMenuItem(
+                  value: StringsManager.maintain,
+                  child: Text(
+                    StringsManager.maintainWeightHint,
+                    style: StyleManager.registerTextfieldTextStyle,
+                  ),
+                ),
+                DropdownMenuItem(
+                  value: StringsManager.gain,
+                  child: Text(
+                    StringsManager.gainWeightHint,
+                    style: StyleManager.registerTextfieldTextStyle,
+                  ),
+                ),
+              ],
             ),
           ),
         ),

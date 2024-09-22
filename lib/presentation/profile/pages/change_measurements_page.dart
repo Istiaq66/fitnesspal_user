@@ -245,56 +245,66 @@ class _ChangeMeasurementsPageState extends State<ChangeMeasurementsPage> {
                           ),
                         ),
                         child: DropdownButtonHideUnderline(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: ColorManager.darkGrey,
-                              borderRadius: BorderRadius.circular(RadiusManager.r15.r),
-                            ),
-                            child: DropdownButton2(
-                              onChanged: _onChangedActivity,
-                              value: _valueActivity,
-                              hint: Text(
-                                StringsManager.activityHint,
-                                style: StyleManager.registerTextfieldTextStyle,
+                          child: DropdownButton2(
+                            dropdownStyleData: DropdownStyleData(
+                              decoration: BoxDecoration(
+                                color: ColorManager.darkGrey,
+                                borderRadius: BorderRadius.circular(
+                                  RadiusManager.r15.r,
+                                ),
                               ),
-                              items: [
-                                DropdownMenuItem(
-                                  value: StringsManager.activityLowHint,
-                                  child: Text(
-                                    StringsManager.activityLowHint,
-                                    style: StyleManager.registerTextfieldTextStyle,
-                                  ),
-                                ),
-                                DropdownMenuItem(
-                                  value: StringsManager.activityLightHint,
-                                  child: Text(
-                                    StringsManager.activityLightHint,
-                                    style: StyleManager.registerTextfieldTextStyle,
-                                  ),
-                                ),
-                                DropdownMenuItem(
-                                  value: StringsManager.activityModerateHint,
-                                  child: Text(
-                                    StringsManager.activityModerateHint,
-                                    style: StyleManager.registerTextfieldTextStyle,
-                                  ),
-                                ),
-                                DropdownMenuItem(
-                                  value: StringsManager.activityHighHint,
-                                  child: Text(
-                                    StringsManager.activityHighHint,
-                                    style: StyleManager.registerTextfieldTextStyle,
-                                  ),
-                                ),
-                                DropdownMenuItem(
-                                  value: StringsManager.activityVeryHighHint,
-                                  child: Text(
-                                    StringsManager.activityVeryHighHint,
-                                    style: StyleManager.registerTextfieldTextStyle,
-                                  ),
-                                ),
-                              ],
                             ),
+                            onChanged: _onChangedActivity,
+                            value: _valueActivity,
+                            iconStyleData: const IconStyleData(
+                            iconSize: SizeManager.s0,
+                          ),
+                            hint: Text(
+                              StringsManager.activityHint,
+                              style: StyleManager.registerTextfieldTextStyle,
+                            ),
+                            items: [
+                              DropdownMenuItem(
+                                value: StringsManager.activityLowHint,
+                                child: Text(
+                                  StringsManager.activityLowHint,
+                                  style:
+                                      StyleManager.registerTextfieldTextStyle,
+                                ),
+                              ),
+                              DropdownMenuItem(
+                                value: StringsManager.activityLightHint,
+                                child: Text(
+                                  StringsManager.activityLightHint,
+                                  style:
+                                      StyleManager.registerTextfieldTextStyle,
+                                ),
+                              ),
+                              DropdownMenuItem(
+                                value: StringsManager.activityModerateHint,
+                                child: Text(
+                                  StringsManager.activityModerateHint,
+                                  style:
+                                      StyleManager.registerTextfieldTextStyle,
+                                ),
+                              ),
+                              DropdownMenuItem(
+                                value: StringsManager.activityHighHint,
+                                child: Text(
+                                  StringsManager.activityHighHint,
+                                  style:
+                                      StyleManager.registerTextfieldTextStyle,
+                                ),
+                              ),
+                              DropdownMenuItem(
+                                value: StringsManager.activityVeryHighHint,
+                                child: Text(
+                                  StringsManager.activityVeryHighHint,
+                                  style:
+                                      StyleManager.registerTextfieldTextStyle,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
@@ -313,44 +323,49 @@ class _ChangeMeasurementsPageState extends State<ChangeMeasurementsPage> {
                           ),
                         ),
                         child: DropdownButtonHideUnderline(
-                          child: Container(
-                            decoration: BoxDecoration(
-                              color: ColorManager.darkGrey,
-                              borderRadius: BorderRadius.circular(
-                                RadiusManager.r15.r,
+                          child: DropdownButton2(
+                            dropdownStyleData: DropdownStyleData(
+                              decoration: BoxDecoration(
+                                color: ColorManager.darkGrey,
+                                borderRadius: BorderRadius.circular(
+                                  RadiusManager.r15.r,
+                                ),
                               ),
                             ),
-                            child: DropdownButton2(
-                              onChanged: _onChangedGoals,
-                              value: _valueGoals,
-                              hint: Text(
-                                StringsManager.goalHint,
-                                style: StyleManager.registerTextfieldTextStyle,
-                              ),
-                              items: [
-                                DropdownMenuItem(
-                                  value: StringsManager.lose,
-                                  child: Text(
-                                    StringsManager.loseWeightHint,
-                                    style: StyleManager.registerTextfieldTextStyle,
-                                  ),
-                                ),
-                                DropdownMenuItem(
-                                  value: StringsManager.maintain,
-                                  child: Text(
-                                    StringsManager.maintainWeightHint,
-                                    style: StyleManager.registerTextfieldTextStyle,
-                                  ),
-                                ),
-                                DropdownMenuItem(
-                                  value: StringsManager.gain,
-                                  child: Text(
-                                    StringsManager.gainWeightHint,
-                                    style: StyleManager.registerTextfieldTextStyle,
-                                  ),
-                                ),
-                              ],
+                            onChanged: _onChangedGoals,
+                            value: _valueGoals,
+                            iconStyleData: const IconStyleData(
+                            iconSize: SizeManager.s0, ),
+                            hint: Text(
+                              StringsManager.goalHint,
+                              style: StyleManager.registerTextfieldTextStyle,
                             ),
+                            items: [
+                              DropdownMenuItem(
+                                value: StringsManager.lose,
+                                child: Text(
+                                  StringsManager.loseWeightHint,
+                                  style:
+                                      StyleManager.registerTextfieldTextStyle,
+                                ),
+                              ),
+                              DropdownMenuItem(
+                                value: StringsManager.maintain,
+                                child: Text(
+                                  StringsManager.maintainWeightHint,
+                                  style:
+                                      StyleManager.registerTextfieldTextStyle,
+                                ),
+                              ),
+                              DropdownMenuItem(
+                                value: StringsManager.gain,
+                                child: Text(
+                                  StringsManager.gainWeightHint,
+                                  style:
+                                      StyleManager.registerTextfieldTextStyle,
+                                ),
+                              ),
+                            ],
                           ),
                         ),
                       ),
