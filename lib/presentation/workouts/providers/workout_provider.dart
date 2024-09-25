@@ -425,7 +425,6 @@ class WorkoutProvider with ChangeNotifier {
     // Check if the saved counter needs to be reset
     if (value < savedStepCount) {
       savedStepCount = 0;
-      reset();
       await prefs.setInt(StringsManager.savedStepCount, savedStepCount);
     }
 
@@ -448,13 +447,13 @@ class WorkoutProvider with ChangeNotifier {
   double _caloriesBurned = 0.0;
 
   void _calculateDistance() {
-    _distanceKm = (_steps * 0.78) / 1000; // Convert meters to kilometers
+    _distanceKm = (todayStepCount * 0.78) / 1000; // Convert meters to kilometers
     _distanceKm = double.parse(_distanceKm.toStringAsFixed(2));
   }
 
   void _calculateCalories() {
     // Assuming 0.04 calories burned per step
-    _caloriesBurned = _steps * 0.04; // Calculate calories burned in calories
+    _caloriesBurned = todayStepCount * 0.04; // Calculate calories burned in calories
 
     // Convert to kilocalories (kcal)
     double kcalBurned = _caloriesBurned / 1000;
@@ -463,13 +462,13 @@ class WorkoutProvider with ChangeNotifier {
     _caloriesBurned = double.parse(kcalBurned.toStringAsFixed(2));
   }
 
-  void reset() {
-    _steps = 0;
-    _stepCountValue = "0";
-    _distanceKm = 0.0;
-    _caloriesBurned = 0.0;
-    notifyListeners();
-  }
+  // void reset() {
+  //   _steps = 0;
+  //   _stepCountValue = "0";
+  //   _distanceKm = 0.0;
+  //   _caloriesBurned = 0.0;
+  //   notifyListeners();
+  // }
 
   // Getters
   String get stepCountValue => _stepCountValue;
