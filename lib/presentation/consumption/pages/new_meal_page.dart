@@ -10,6 +10,8 @@ import 'package:fitnesspal_user/utils/widgets/text_field_underlined.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import 'package:top_snackbar_flutter/custom_snack_bar.dart';
+import 'package:top_snackbar_flutter/top_snack_bar.dart';
 
 class NewMealPage extends StatefulWidget {
   const NewMealPage({super.key});
@@ -149,14 +151,28 @@ class _NewMealPageState extends State<NewMealPage> {
               ),
               LimeGreenRoundedButtonWidget(
                 onTap: () {
+                 String mealTitle = _mealTitleController.text;
+                 double amount = double.parse(_mealAmountController.text);
+                 double calories = double.parse(_mealCalloriesController.text);
+                 double fat = double.parse(_mealFatsController.text);
+                 double carbs = double.parse(_mealCarbsController.text);
+                 double protein = double.parse(_mealProteinsController.text);
+
+                 if(amount < fat){
+                   showTopSnackBar(Overlay.of(context), const CustomSnackBar.error( message: "Fat can't be greater than amount",),);
+                 }else if(amount < carbs){
+                   showTopSnackBar(Overlay.of(context), const CustomSnackBar.error( message: "Carbs can't be greater than amount",),);
+                 }else if(amount < protein){
+                   showTopSnackBar(Overlay.of(context), const CustomSnackBar.error( message: "Protein can't be greater than amount",),);
+                 }
                   try {
                     consumptionProvider.addNewMeal(
-                      title: _mealTitleController.text,
-                      amount: double.parse(_mealAmountController.text),
-                      calories: double.parse(_mealCalloriesController.text),
-                      fats: double.parse(_mealFatsController.text),
-                      carbs: double.parse(_mealCarbsController.text),
-                      proteins: double.parse(_mealProteinsController.text),
+                      title: mealTitle,
+                      amount: amount,
+                      calories: calories,
+                      fats: fat,
+                      carbs: carbs,
+                      proteins: protein,
                       dateTime: DateTime.now(),
                     );
                     Navigator.of(context).pop();

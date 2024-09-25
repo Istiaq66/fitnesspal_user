@@ -47,7 +47,7 @@ class MealWidget extends StatelessWidget {
               onPressed: onPressed,
               icon: Icons.delete,
               label: StringsManager.delete,
-              foregroundColor: ColorManager.limerGreen2,
+              foregroundColor: ColorManager.red,
               backgroundColor: ColorManager.darkGrey,
             ),
           ],
