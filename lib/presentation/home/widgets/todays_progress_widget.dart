@@ -9,8 +9,8 @@ import 'package:fitnesspal_user/utils/managers/string_manager.dart';
 import 'package:fitnesspal_user/utils/managers/style_manager.dart';
 import 'package:fitnesspal_user/utils/managers/value_manager.dart';
 
-class TodaysProgressWidget extends StatelessWidget {
-  const TodaysProgressWidget({
+class TodayProgressWidget extends StatelessWidget {
+  const TodayProgressWidget({
     super.key,
   });
 

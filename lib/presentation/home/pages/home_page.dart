@@ -74,7 +74,7 @@ class _HomePageState extends State<HomePage> {
                     title: StringsManager.explore,
                   ),
                   CarouselSliderHomeWidget(),
-                  TodaysProgressWidget(),
+                  TodayProgressWidget(),
                   HomePageTextSpacerWidget(
                     title: StringsManager.todaysAct,
                   ),
