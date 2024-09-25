@@ -8,6 +8,9 @@ import 'package:fitnesspal_user/model/workout_model.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class WorkoutProvider with ChangeNotifier {
+  final SharedPreferences prefs;
+
+  WorkoutProvider(this.prefs);
   final List<WorkoutModel> _workouts = [];
   final List<WorkoutModel> _finishedWorkouts = [];
   final List<WorkoutModel> _heatMapData = [];
@@ -350,6 +353,7 @@ class WorkoutProvider with ChangeNotifier {
   int _steps = 0;
   int savedStepCount = 0;
   int todayStepCount = 0;
+  int savedTodayStepCount = 0;
   int lastDaySaved = 0;
 
   int get steps => _steps;
@@ -418,7 +422,6 @@ class WorkoutProvider with ChangeNotifier {
   }
 
   void _saveStepCount(int value) async {
-    final prefs = await SharedPreferences.getInstance();
     savedStepCount = prefs.getInt(StringsManager.savedStepCount) ?? 0;
     lastDaySaved = prefs.getInt(StringsManager.lastDaySaved) ?? 0;
 
@@ -440,21 +443,21 @@ class WorkoutProvider with ChangeNotifier {
     }
 
     todayStepCount = value - savedStepCount;
+    await prefs.setInt(StringsManager.savedTodayStepCount, todayStepCount);
   }
 
-  String _stepCountValue = "0";
   double _distanceKm = 0.0;
   double _caloriesBurned = 0.0;
 
   void calculateDistance() {
-    _distanceKm = (todayStepCount * 0.78) / 1000; // Convert meters to kilometers
+    _distanceKm = (prefs.getInt(StringsManager.savedTodayStepCount) ?? 0 * 0.78) / 1000; // Convert meters to kilometers
     _distanceKm = double.parse(_distanceKm.toStringAsFixed(2));
   }
 
   void calculateCalories() {
     // Assuming 0.04 calories burned per step
-    _caloriesBurned = todayStepCount * 0.04; // Calculate calories burned in calories
-
+    _caloriesBurned = (prefs.getInt(StringsManager.savedTodayStepCount) ?? 0) * 0.04; // Calculate calories burned in calories
+    debugPrint('-------caloriesBurned----->>>>${_caloriesBurned}');
     // Convert to kilocalories (kcal)
     double kcalBurned = _caloriesBurned / 1000;
 
@@ -471,7 +474,6 @@ class WorkoutProvider with ChangeNotifier {
   // }
 
   // Getters
-  String get stepCountValue => _stepCountValue;
   double get distanceKm => _distanceKm;
   double get caloriesBurned => _caloriesBurned;
 }

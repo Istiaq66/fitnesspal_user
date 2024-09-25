@@ -8,12 +8,14 @@ import 'package:fitnesspal_user/utils/router/router.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:provider/provider.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class MyApp extends StatefulWidget {
-  const MyApp._internal();
-  static const MyApp instance = MyApp._internal();
+  final SharedPreferences prefs;
+  const MyApp._internal({required this.prefs});
+  static MyApp instance({required SharedPreferences prefs}) => MyApp._internal(prefs: prefs);
 
-  factory MyApp() => instance;
+  factory MyApp({required SharedPreferences prefs}) => instance(prefs: prefs);
 
   @override
   State<MyApp> createState() => _MyAppState();
@@ -34,7 +36,7 @@ class _MyAppState extends State<MyApp> {
           value: HomeProvider(),
         ),
         ChangeNotifierProvider.value(
-          value: WorkoutProvider(),
+          value: WorkoutProvider(widget.prefs),
         ),
         ChangeNotifierProvider.value(
           value: ConsumptionProvider(),

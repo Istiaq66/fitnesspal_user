@@ -225,6 +225,7 @@ class StringsManager {
   ///--Shared Keys--///
   static String savedStepCount = "savedStepCount";
   static String lastDaySaved = "lastDaySaved";
+  static String savedTodayStepCount = "savedTodayStepCount";
 
   ///--Keys--//
   static String geminiApiKey = "AIzaSyBw_c5uDgDeTMAxtVIZJOKJrsH7wPejiso";
