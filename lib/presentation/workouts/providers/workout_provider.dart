@@ -360,8 +360,8 @@ class WorkoutProvider with ChangeNotifier {
   void onStepCount(StepCount event) {
     debugPrint('========>>>>>event$event');
     _steps = event.steps;
-    _calculateDistance();
-    _calculateCalories();
+    calculateDistance();
+    calculateCalories();
     _saveStepCount(event.steps);
     notifyListeners();
   }
@@ -446,12 +446,12 @@ class WorkoutProvider with ChangeNotifier {
   double _distanceKm = 0.0;
   double _caloriesBurned = 0.0;
 
-  void _calculateDistance() {
+  void calculateDistance() {
     _distanceKm = (todayStepCount * 0.78) / 1000; // Convert meters to kilometers
     _distanceKm = double.parse(_distanceKm.toStringAsFixed(2));
   }
 
-  void _calculateCalories() {
+  void calculateCalories() {
     // Assuming 0.04 calories burned per step
     _caloriesBurned = todayStepCount * 0.04; // Calculate calories burned in calories
 

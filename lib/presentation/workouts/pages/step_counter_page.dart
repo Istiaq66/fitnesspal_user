@@ -18,6 +18,8 @@ class _StepCounterPageState extends State<StepCounterPage> {
   @override
   void initState() {
     super.initState();
+    Provider.of<WorkoutProvider>(context, listen: false).calculateCalories();
+    Provider.of<WorkoutProvider>(context, listen: false).calculateDistance();
     setup();
   }
 
