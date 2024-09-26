@@ -2,6 +2,7 @@ import 'package:fitnesspal_user/presentation/workouts/providers/workout_provider
 import 'package:fitnesspal_user/presentation/workouts/widgets/step_status_widget.dart';
 import 'package:fitnesspal_user/utils/managers/asset_manager.dart';
 import 'package:fitnesspal_user/utils/managers/color_manager.dart';
+import 'package:fitnesspal_user/utils/managers/string_manager.dart';
 import 'package:fitnesspal_user/utils/managers/value_manager.dart';
 import 'package:syncfusion_flutter_gauges/gauges.dart';
 import 'package:flutter/material.dart';
@@ -68,7 +69,7 @@ class _StepCounterPageState extends State<StepCounterPage> {
                   Expanded(
                     child: Padding(padding: const EdgeInsets.all(10),
                       child: StepStatusWidget(color: ColorManager.limeGreen,
-                        mainTitle: workoutProvider.status,number: workoutProvider.todayStepCount.toString(),
+                        mainTitle: workoutProvider.status,number: workoutProvider.prefs.getInt(StringsManager.savedTodayStepCount).toString(),
                         iconData: workoutProvider.status == 'walking'
                             ? Icons.directions_walk
                             : workoutProvider.status == 'stopped'

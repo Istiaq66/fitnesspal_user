@@ -457,7 +457,6 @@ class WorkoutProvider with ChangeNotifier {
   void calculateCalories() {
     // Assuming 0.04 calories burned per step
     _caloriesBurned = (prefs.getInt(StringsManager.savedTodayStepCount) ?? 0) * 0.04; // Calculate calories burned in calories
-    debugPrint('-------caloriesBurned----->>>>${_caloriesBurned}');
     // Convert to kilocalories (kcal)
     double kcalBurned = _caloriesBurned / 1000;
 
