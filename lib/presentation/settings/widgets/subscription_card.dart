@@ -5,11 +5,12 @@ import 'package:fitnesspal_user/utils/managers/style_manager.dart';
 import 'package:fitnesspal_user/utils/managers/value_manager.dart';
 
 class SubscriptionCard extends StatelessWidget {
-  Color? color;
-  String? time;
-  String? money;
-  String? name;
-  SubscriptionCard({this.color,this.time,this.money,this.name,super.key});
+  final Color? color;
+  final String? time;
+  final String? money;
+  final String? name;
+  final void Function()? func;
+  const SubscriptionCard({this.color,this.time,this.money,this.name,super.key, this.func});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +29,7 @@ class SubscriptionCard extends StatelessWidget {
                    Text('$name',style: StyleManager.percentValueOfMealTextStyle,),
                     SizedBox(height: SizeManager.s10.h,),
 
-                   Text('$money',style: StyleManager.settingsOptionTiteTextStyle,),
+                   Text('$money tk',style: StyleManager.settingsOptionTiteTextStyle,),
                     SizedBox(height: SizeManager.s10.h,),
 
                    Text('$time',style: StyleManager.percentValueOfMealTextStyle,),
@@ -44,7 +45,10 @@ class SubscriptionCard extends StatelessWidget {
                 color: Colors.orange,
                 shape: BoxShape.circle
             ),
-            child: const Icon( Icons.chevron_right, size: SizeManager.s35, color: Colors.white,
+            child: IconButton(
+              onPressed: func,
+              icon: const Icon( Icons.chevron_right, size: SizeManager.s35, color: Colors.white,
+              ),
             ),
           ),
         ),

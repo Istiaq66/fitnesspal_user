@@ -75,7 +75,7 @@ class RouteGenerator {
       case Routes.changeWeightRoute:
         return MaterialPageRoute(builder: (_) => const ChangeWeightPage());
       case Routes.subscription:
-        return MaterialPageRoute(builder: (_) => const SubscriptionPage());
+        return MaterialPageRoute(builder: (_) =>  SubscriptionPage());
       case Routes.chatBot:
         return MaterialPageRoute(builder: (_) => const ChatBotPage());
       case Routes.changeMeasurementsRoute:
