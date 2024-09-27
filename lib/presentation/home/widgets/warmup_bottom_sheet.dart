@@ -111,7 +111,7 @@ class WarmupBottomSheet extends StatelessWidget {
                         fit: BoxFit.cover,
                         height: getHeight(context) *
                             0.08,
-                        frameRate: FrameRate(60),
+                        frameRate: const FrameRate(60),
                       ),
                     ),
                     Container(
@@ -120,7 +120,7 @@ class WarmupBottomSheet extends StatelessWidget {
                         fit: BoxFit.cover,
                         height: getHeight(context) *
                             0.08,
-                        frameRate: FrameRate(60),
+                        frameRate: const FrameRate(60),
                       ),
                     ),
                     Container(
@@ -129,7 +129,7 @@ class WarmupBottomSheet extends StatelessWidget {
                         fit: BoxFit.cover,
                         height: getHeight(context) *
                             0.08,
-                        frameRate: FrameRate(60),
+                        frameRate: const FrameRate(60),
                       ),
                     ),
                   ],
@@ -192,7 +192,7 @@ class WarmupBottomSheet extends StatelessWidget {
                         fit: BoxFit.cover,
                         height: getHeight(context) *
                             0.08,
-                        frameRate: FrameRate(60),
+                        frameRate: const FrameRate(60),
                       ),
                     ),
                     Container(
@@ -201,7 +201,7 @@ class WarmupBottomSheet extends StatelessWidget {
                         fit: BoxFit.cover,
                         height: getHeight(context) *
                             0.08,
-                        frameRate: FrameRate(60),
+                        frameRate: const FrameRate(60),
                       ),
                     ),
                     Container(
@@ -210,7 +210,7 @@ class WarmupBottomSheet extends StatelessWidget {
                         fit: BoxFit.cover,
                         height: getHeight(context) *
                             0.08,
-                        frameRate: FrameRate(60),
+                        frameRate: const FrameRate(60),
                       ),
                     ),
                   ],

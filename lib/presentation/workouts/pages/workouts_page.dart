@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_heatmap_calendar/flutter_heatmap_calendar.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 import 'package:liquid_pull_to_refresh/liquid_pull_to_refresh.dart';
-import 'package:pedometer/pedometer.dart';
 import 'package:provider/provider.dart';
 import 'package:fitnesspal_user/presentation/workouts/providers/workout_provider.dart';
 import 'package:fitnesspal_user/presentation/workouts/widgets/new_exercise_button.dart';

@@ -46,6 +46,7 @@ class StringsManager {
   static const String support = 'Support';
   static const String theme = 'Change theme';
   static const String fitnessBot = 'Fitness Pal Bot';
+  static const String getUserId = 'Get user Id';
   static const String deleteAcc = 'Delete account';
   static const String oldPasswordHint = 'Old Password';
   static const String newPasswordHint = 'New Password';

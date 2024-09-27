@@ -1,3 +1,5 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:fitnesspal_user/presentation/settings/pages/user_id_copy.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_animate/flutter_animate.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
@@ -15,6 +17,26 @@ class SettingsPage extends StatefulWidget {
 }
 
 class _SettingsPageState extends State<SettingsPage> {
+  User? user;
+  String? userId;
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchUserId();
+  }
+
+  Future<void> _fetchUserId() async {
+    user = FirebaseAuth.instance.currentUser;
+    if (user != null) {
+      userId = user!.uid; // Get the user ID
+      // Optionally, you could fetch more user data from Firestore if needed
+      // final snapshot = await FirebaseFirestore.instance.collection('users').doc(userId).get();
+      // Handle user data as needed
+      setState(() {}); // Trigger a rebuild
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final deviceWidth = MediaQuery.of(context).size.width;
@@ -74,12 +96,12 @@ class _SettingsPageState extends State<SettingsPage> {
                 ),
               ),
             ),
-            // SettingsPageButton(
-            //   deviceWidth: deviceWidth,
-            //   onTap: () => Navigator.of(context).pushNamed(Routes.chatBot),
-            //   iconData: Icons.manage_accounts_outlined,
-            //   title: StringsManager.fitnessBot,
-            // ),
+            SettingsPageButton(
+              deviceWidth: deviceWidth,
+              onTap: () => Navigator.push(context, MaterialPageRoute(builder: (context)=> UserIDScreen(userId: userId ?? '',) )),
+              iconData: Icons.insert_drive_file_rounded,
+              title: StringsManager.getUserId,
+            ),
             SettingsPageButton(
               deviceWidth: deviceWidth,
               onTap: () {

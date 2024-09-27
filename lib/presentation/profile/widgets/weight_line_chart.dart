@@ -55,8 +55,8 @@ class _WeightLineChartState extends State<WeightLineChart> {
                               maxX: 12,
                               minY: 0,
                               maxY: 120,
-                              titlesData: FlTitlesData(show: false),
-                              gridData: FlGridData(show: false),
+                              titlesData: const FlTitlesData(show: false),
+                              gridData: const FlGridData(show: false),
                               borderData: FlBorderData(
                                 show: false,
                               ),
@@ -64,7 +64,7 @@ class _WeightLineChartState extends State<WeightLineChart> {
                                 LineChartBarData(
                                   spots: profileProvider.flSpots,
                                   isCurved: true,
-                                  dotData: FlDotData(show: false),
+                                  dotData: const FlDotData(show: false),
                                   color: ColorManager.limerGreen2,
                                   barWidth: SizeManager.s3.w,
                                   belowBarData: BarAreaData(
