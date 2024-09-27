@@ -12,7 +12,7 @@ import 'package:fitnesspal_user/utils/managers/value_manager.dart';
 import 'package:rflutter_alert/rflutter_alert.dart';
 
 class SubscriptionPage extends StatefulWidget {
-  SubscriptionPage({super.key});
+  const SubscriptionPage({super.key});
 
   @override
   State<SubscriptionPage> createState() => _SubscriptionPageState();

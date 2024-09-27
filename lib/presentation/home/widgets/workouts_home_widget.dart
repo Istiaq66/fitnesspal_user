@@ -6,6 +6,8 @@ import 'package:fitnesspal_user/presentation/home/widgets/workout_type_cards.dar
 import 'package:fitnesspal_user/utils/managers/value_manager.dart';
 import 'package:flutter/material.dart';
 
+import 'more_articles.dart';
+
 
 class WorkOutsHomeWidget extends StatelessWidget {
   const WorkOutsHomeWidget({super.key});
@@ -58,7 +60,7 @@ class WorkOutsHomeWidget extends StatelessWidget {
                       ),
                     ),
                     onPressed: (){
-                      //    Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>morearticles()));
+                         Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>const morearticles()));
                     },
                   ),
                 ),
@@ -347,7 +349,6 @@ class WorkOutsHomeWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children:[
                   Container(
-
                       width: getWidth(context)*0.9,
                       height: getHeight(context)*0.38,
                       decoration: BoxDecoration(
@@ -355,21 +356,22 @@ class WorkOutsHomeWidget extends StatelessWidget {
                         borderRadius: BorderRadius.circular(20),
                       ),
                       margin: EdgeInsets.only(left: getWidth(context)*0.05,right: getWidth(context)*0.02,bottom: 20),
-                      child: Container(
+                      child: Expanded(
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.stretch,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Container(
-                              margin: EdgeInsets.only(top: 10.0,left: getWidth(context)*0.02,right: getWidth(context)*0.02),
-
-                              height: getHeight(context)*0.22,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(25),
-                                  image: const DecorationImage(
-                                    image: AssetImage ("assets/images/fishy.jpg"),
-                                    fit: BoxFit.cover,
-                                  )
+                            Expanded(
+                              child: Container(
+                                margin: EdgeInsets.only(top: 10.0,left: getWidth(context)*0.02,right: getWidth(context)*0.02),
+                                height: getHeight(context)*0.22,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.circular(25),
+                                    image: const DecorationImage(
+                                      image: AssetImage ("assets/images/fishy.jpg"),
+                                      fit: BoxFit.cover,
+                                    )
+                                ),
                               ),
                             ),
                             Container(
@@ -383,216 +385,15 @@ class WorkOutsHomeWidget extends StatelessWidget {
                                 ),
                               ),
                             ),
-                            Container(
-                              margin: EdgeInsets.only(left: getWidth(context)*0.045,top: getWidth(context)*0.03),
-                              child: const Text(
-                                'Fish is filled with omega-3 fatty acids and vitamins such as D and B2 (riboflavin). Fish is rich in calcium and phosphorus and a great source of minerals, such as iron, zinc, iodine, magnesium, and potassium.',
-                                style: TextStyle(
-                                  color: Colors.white70,
+                            Expanded(
+                              child: Container(
+                                margin: EdgeInsets.only(left: getWidth(context)*0.045,top: getWidth(context)*0.03),
+                                child: const Text(
+                                  'Fish is filled with omega-3 fatty acids and vitamins such as D and B2 (riboflavin). Fish is rich in calcium and phosphorus and a great source of minerals, such as iron, zinc, iodine, magnesium, and potassium.',
+                                  style: TextStyle(
+                                    color: Colors.white70,
 
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
-                  ),
-                  const SizedBox(
-                    width: 10.0,
-                  ),
-                  Container(
-
-                      width: getWidth(context)*0.9,
-                      height: getHeight(context)*0.38,
-                      decoration: BoxDecoration(
-                        color: Colors.white10,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      margin: EdgeInsets.only(left: getWidth(context)*0.05,right: getWidth(context)*0.02,bottom: 20),
-                      child: Container(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Container(
-                              margin: EdgeInsets.only(top: 10.0,left: getWidth(context)*0.02,right: getWidth(context)*0.02),
-
-                              height: getHeight(context)*0.22,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(25),
-                                  image: const DecorationImage(
-                                    image: AssetImage ("assets/images/stawbery.jpg"),
-                                    fit: BoxFit.cover,
-                                  )
-                              ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(left: getWidth(context)*0.045,top: getWidth(context)*0.03),
-                              child: const Text(
-                                'Strawberry',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(left: getWidth(context)*0.045,top: getWidth(context)*0.03),
-                              child: const Text(
-                                'Strawberries are an excellent source of vitamin C and manganese and also contain decent amounts of folate (vitamin B9) and potassium. Strawberries are very rich in antioxidants and plant compounds.',
-                                style: TextStyle(
-                                  color: Colors.white70,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
-                  ),
-                  Container(
-
-                      width: getWidth(context)*0.9,
-                      height: getHeight(context)*0.38,
-                      decoration: BoxDecoration(
-                        color: Colors.white10,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      margin: EdgeInsets.only(left: getWidth(context)*0.05,right: getWidth(context)*0.02,bottom: 20),
-                      child: Container(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Container(
-                              margin: EdgeInsets.only(top: 10.0,left: getWidth(context)*0.02,right: getWidth(context)*0.02),
-
-                              height: getHeight(context)*0.22,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(25),
-                                  image: const DecorationImage(
-                                    image: AssetImage ("assets/images/potatoes.jpg"),
-                                    fit: BoxFit.cover,
-                                  )
-                              ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(left: getWidth(context)*0.045,top: getWidth(context)*0.03),
-                              child: const Text(
-                                'Potatoes',
-                                style: TextStyle(
-                                  fontSize: 20.0,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(left: getWidth(context)*0.045,top: getWidth(context)*0.03),
-                              child: const Text(
-                                'Potatoes are rich in vitamin C, which is an antioxidant. Potatoes were a life-saving food source in early times because the vitamin C prevented scurvy. Another major nutrient in potatoes is potassium.',
-                                style: TextStyle(
-                                  color: Colors.white70,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
-                  ),
-                  Container(
-
-                      width: getWidth(context)*0.9,
-                      height: getHeight(context)*0.38,
-                      decoration: BoxDecoration(
-                        color: Colors.white10,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      margin: EdgeInsets.only(left: getWidth(context)*0.05,right: getWidth(context)*0.02,bottom: 20),
-                      child: Container(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Container(
-                              margin: EdgeInsets.only(top: 10.0,left: getWidth(context)*0.02,right: getWidth(context)*0.02),
-
-                              height: getHeight(context)*0.22,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(25),
-                                  image: const DecorationImage(
-                                    image: AssetImage ("assets/images/bananas.jpg"),
-                                    fit: BoxFit.cover,
-                                  )
-                              ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(left: getWidth(context)*0.045,top: getWidth(context)*0.03),
-                              child: const Text(
-                                'Banana',
-                                style: TextStyle(
-                                  fontSize: 20.0,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(left: getWidth(context)*0.045,top: getWidth(context)*0.03),
-                              child: const Text(
-                                'Is it good to eat a banana every day. They are full of important nutrients, but eating too many could do more harm than good. Too much of any single food may contribute to weight gain and nutrient deficiencies. ',
-                                style: TextStyle(
-                                  color: Colors.white70,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      )
-                  ),
-                  Container(
-
-                      width: getWidth(context)*0.9,
-                      height: getHeight(context)*0.38,
-                      decoration: BoxDecoration(
-                        color: Colors.white10,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      margin: EdgeInsets.only(left: getWidth(context)*0.05,right: getWidth(context)*0.02,bottom: 20),
-                      child: Container(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Container(
-                              margin: EdgeInsets.only(top: 10.0,left: getWidth(context)*0.02,right: getWidth(context)*0.02),
-
-                              height: getHeight(context)*0.22,
-                              decoration: BoxDecoration(
-                                  borderRadius: BorderRadius.circular(25),
-                                  image: const DecorationImage(
-                                    image: AssetImage ("assets/images/eggs.jpg"),
-                                    fit: BoxFit.cover,
-                                  )
-                              ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(left: getWidth(context)*0.045,top: getWidth(context)*0.03),
-                              child: const Text(
-                                'Eggs',
-                                style: TextStyle(
-                                  fontSize: 20.0,
-                                  color: Colors.white,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            Container(
-                              margin: EdgeInsets.only(left: getWidth(context)*0.045,top: getWidth(context)*0.03),
-                              child: const Text(
-                                'Eggs are also a great source of heart-healthy nutrients like potassium, folate and B vitamins. Some research suggests that up to two eggs per day actually improves heart health.',
-                                style: TextStyle(
-                                  color: Colors.white70,
+                                  ),
                                 ),
                               ),
                             ),
