@@ -7,6 +7,7 @@ import 'package:fitnesspal_user/utils/managers/value_manager.dart';
 import 'package:flutter/material.dart';
 
 import 'more_articles.dart';
+import 'more_neutrition.dart';
 
 
 class WorkOutsHomeWidget extends StatelessWidget {
@@ -334,7 +335,7 @@ class WorkOutsHomeWidget extends StatelessWidget {
                     ),
 
                     onPressed: (){
-                      //Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>morenutrition()));
+                      Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>const morenutrition()));
                     },
                   ),
                 ),
