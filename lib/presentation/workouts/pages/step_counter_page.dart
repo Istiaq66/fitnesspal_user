@@ -69,7 +69,8 @@ class _StepCounterPageState extends State<StepCounterPage> {
                   Expanded(
                     child: Padding(padding: const EdgeInsets.all(10),
                       child: StepStatusWidget(color: ColorManager.limeGreen,
-                        mainTitle: workoutProvider.status,number: workoutProvider.prefs.getInt(StringsManager.savedTodayStepCount).toString(),
+                        mainTitle: workoutProvider.status,number: workoutProvider.prefs.getInt(StringsManager.savedTodayStepCount) == null ?
+                        "0" : workoutProvider.prefs.getInt(StringsManager.savedTodayStepCount).toString(),
                         iconData: workoutProvider.status == 'walking'
                             ? Icons.directions_walk
                             : workoutProvider.status == 'stopped'
