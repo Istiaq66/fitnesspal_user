@@ -24,10 +24,7 @@ class _morearticlesState extends State<morearticles> {
             padding: const EdgeInsets.only(left: 30.0),
             alignment: Alignment.centerLeft,
             onPressed: () {
-              Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                      builder: (BuildContext context) => const HomePage()));
+              Navigator.pop(context);
             },
             icon: const Icon(
               Icons.arrow_back_sharp,

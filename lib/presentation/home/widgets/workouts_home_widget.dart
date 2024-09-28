@@ -342,68 +342,62 @@ class WorkOutsHomeWidget extends StatelessWidget {
 
               ],
             ),
-            SingleChildScrollView(
-              // padding: EdgeInsets.symmetric(horizontal: 33),
-              scrollDirection: Axis.horizontal,
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children:[
-                  Container(
-                      width: getWidth(context)*0.9,
-                      height: getHeight(context)*0.38,
-                      decoration: BoxDecoration(
-                        color: Colors.white10,
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                      margin: EdgeInsets.only(left: getWidth(context)*0.05,right: getWidth(context)*0.02,bottom: 20),
-                      child: Expanded(
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.stretch,
-                          mainAxisAlignment: MainAxisAlignment.start,
-                          children: [
-                            Expanded(
-                              child: Container(
-                                margin: EdgeInsets.only(top: 10.0,left: getWidth(context)*0.02,right: getWidth(context)*0.02),
-                                height: getHeight(context)*0.22,
-                                decoration: BoxDecoration(
-                                    borderRadius: BorderRadius.circular(25),
-                                    image: const DecorationImage(
-                                      image: AssetImage ("assets/images/fishy.jpg"),
-                                      fit: BoxFit.cover,
-                                    )
-                                ),
-                              ),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children:[
+                Container(
+                    width: getWidth(context)*0.9,
+                    height: getHeight(context)*0.38,
+                    decoration: BoxDecoration(
+                      color: Colors.white10,
+                      borderRadius: BorderRadius.circular(20),
+                    ),
+                    margin: EdgeInsets.only(left: getWidth(context)*0.05,right: getWidth(context)*0.02,bottom: 20),
+                    child: Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: [
+                        Expanded(
+                          child: Container(
+                            margin: EdgeInsets.only(top: 10.0,left: getWidth(context)*0.02,right: getWidth(context)*0.02),
+                            height: getHeight(context)*0.22,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(25),
+                                image: const DecorationImage(
+                                  image: AssetImage ("assets/images/fishy.jpg"),
+                                  fit: BoxFit.cover,
+                                )
                             ),
-                            Container(
-                              margin: EdgeInsets.only(left: getWidth(context)*0.045,top: getWidth(context)*0.03),
-                              child: const Text(
-                                'Fish',
-                                style: TextStyle(
-                                  color: Colors.white,
-                                  fontSize: 20.0,
-                                  fontWeight: FontWeight.bold,
-                                ),
-                              ),
-                            ),
-                            Expanded(
-                              child: Container(
-                                margin: EdgeInsets.only(left: getWidth(context)*0.045,top: getWidth(context)*0.03),
-                                child: const Text(
-                                  'Fish is filled with omega-3 fatty acids and vitamins such as D and B2 (riboflavin). Fish is rich in calcium and phosphorus and a great source of minerals, such as iron, zinc, iodine, magnesium, and potassium.',
-                                  style: TextStyle(
-                                    color: Colors.white70,
-
-                                  ),
-                                ),
-                              ),
-                            ),
-                          ],
+                          ),
                         ),
-                      )
-                  ),
-                ],
-              ),
+                        Container(
+                          margin: EdgeInsets.only(left: getWidth(context)*0.045,top: getWidth(context)*0.03),
+                          child: const Text(
+                            'Fish',
+                            style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 20.0,
+                              fontWeight: FontWeight.bold,
+                            ),
+                          ),
+                        ),
+                        Expanded(
+                          child: Container(
+                            margin: EdgeInsets.only(left: getWidth(context)*0.045,top: getWidth(context)*0.03),
+                            child: const Text(
+                              'Fish is filled with omega-3 fatty acids and vitamins such as D and B2 (riboflavin). Fish is rich in calcium and phosphorus and a great source of minerals, such as iron, zinc, iodine, magnesium, and potassium.',
+                              style: TextStyle(
+                                color: Colors.white70,
+
+                              ),
+                            ),
+                          ),
+                        ),
+                      ],
+                    )
+                ),
+              ],
             ),
 
 

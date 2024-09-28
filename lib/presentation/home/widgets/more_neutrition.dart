@@ -1,6 +1,5 @@
 
 import 'package:fitnesspal_user/common/widgets/get_height_weight.dart';
-import 'package:fitnesspal_user/presentation/home/pages/home_page.dart';
 import 'package:flutter/material.dart';
 class morenutrition extends StatefulWidget {
   const morenutrition({Key? key}) : super(key: key);
@@ -19,7 +18,7 @@ class _morenutritionState extends State<morenutrition> {
             padding: EdgeInsets.only(left: getWidth(context)*0.05),
             alignment: Alignment.centerLeft,
             onPressed: (){
-              Navigator.push(context, MaterialPageRoute(builder: (BuildContext context)=>const HomePage()));
+              Navigator.pop(context);
             },
             icon: const Icon(
               Icons.arrow_back_sharp,
