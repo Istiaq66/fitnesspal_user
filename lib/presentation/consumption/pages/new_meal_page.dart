@@ -164,21 +164,22 @@ class _NewMealPageState extends State<NewMealPage> {
                    showTopSnackBar(Overlay.of(context), const CustomSnackBar.error( message: "Carbs can't be greater than amount",),);
                  }else if(amount < protein){
                    showTopSnackBar(Overlay.of(context), const CustomSnackBar.error( message: "Protein can't be greater than amount",),);
+                 }else{
+                   try {
+                     consumptionProvider.addNewMeal(
+                       title: mealTitle,
+                       amount: amount,
+                       calories: calories,
+                       fats: fat,
+                       carbs: carbs,
+                       proteins: protein,
+                       dateTime: DateTime.now(),
+                     );
+                     Navigator.of(context).pop();
+                   } catch (e) {
+                     rethrow;
+                   }
                  }
-                  try {
-                    consumptionProvider.addNewMeal(
-                      title: mealTitle,
-                      amount: amount,
-                      calories: calories,
-                      fats: fat,
-                      carbs: carbs,
-                      proteins: protein,
-                      dateTime: DateTime.now(),
-                    );
-                    Navigator.of(context).pop();
-                  } catch (e) {
-                    rethrow;
-                  }
                 },
                 title: StringsManager.add,
               )
