@@ -1,6 +1,5 @@
 
 import 'package:fitnesspal_user/common/widgets/get_height_weight.dart';
-import 'package:fitnesspal_user/presentation/home/pages/home_page.dart';
 
 import 'ArticleAlmonds.dart';
 import 'Article_Eggs.dart';
