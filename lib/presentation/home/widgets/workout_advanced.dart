@@ -32,14 +32,10 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
         backgroundColor: Colors.black,
         body: SingleChildScrollView(
           scrollDirection: Axis.vertical,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.start,
-            crossAxisAlignment: CrossAxisAlignment.start,
+          child: Column(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Container(
-                  margin: EdgeInsets.only(
-                      top: getHeight(context) * 0.1,
-                      left: getWidth(context) * 0.06),
+                  margin: EdgeInsets.only(top: getHeight(context) * 0.1, left: getWidth(context) * 0.06),
                   width: getWidth(context) * 0.2,
                   height: getHeight(context) * 0.02,
                   child: const Text(
@@ -49,31 +45,22 @@ class _WorkoutAdvanceState extends State<WorkoutAdvance> {
                       fontSize: 15.0,
                     ),
                   )),
-              SizedBox(
-                width: getWidth(context),
+              SizedBox(width: getWidth(context),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Container(
-                      width: getWidth(context) * 0.4,
-                      height: getHeight(context) * 0.025,
+                      height: getHeight(context) * 0.035,
                       margin: EdgeInsets.only(left: getWidth(context) * 0.06),
-                      child: const Text(
-                        'ADVANCED',
-                        style: TextStyle(
-                          letterSpacing: 0.5,
-                          color: Colors.white,
-                          fontSize: 22.0,
-                          fontWeight: FontWeight.bold,
-                        ),
-                      ),
-                    ),
+                      child: const Text('ADVANCED',
+                        style: TextStyle(letterSpacing: 0.5, color: Colors.white, fontSize: 22.0, fontWeight: FontWeight.bold,),
+                      ),),
                     const Spacer(),
                     Container(
                       margin: const EdgeInsets.only(),
                       child: IconButton(
                         onPressed: () {
-                          showBottomSheet(
+                          showModalBottomSheet(
                               backgroundColor: Colors.transparent,
                               context: context,
                               builder: (BuildContext context) {

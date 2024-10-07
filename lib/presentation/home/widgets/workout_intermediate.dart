@@ -56,8 +56,7 @@ class _WorkoutIntermediateState extends State<WorkoutIntermediate> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: [
                     Container(
-                      width: getWidth(context) * 0.4,
-                      height: getHeight(context) * 0.025,
+                      height: getHeight(context) * 0.035,
                       margin: EdgeInsets.only(left: getWidth(context) * 0.06),
                       child: const Text(
                         'INTERMEDIATE',
