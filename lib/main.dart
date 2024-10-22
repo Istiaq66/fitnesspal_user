@@ -6,13 +6,14 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'app/app.dart';
 
 void main() async {
+
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
+
   SharedPreferences prefs = await SharedPreferences.getInstance();
-  Gemini.init(
-    apiKey: StringsManager.geminiApiKey,
-  );
+  Gemini.init(apiKey: StringsManager.geminiApiKey);
+
   runApp(
-    MyApp(prefs: prefs,),
+    MyApp(prefs: prefs,)
   );
 }
