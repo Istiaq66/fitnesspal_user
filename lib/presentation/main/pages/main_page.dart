@@ -32,17 +32,27 @@ class _MainPageState extends State<MainPage> {
   FirebaseAnalytics firebaseAnalytics = FirebaseAnalytics.instance;
 
   int _currentIndex = 0;
-  onTap(int index) {
-    setState(() async {
-      await firebaseAnalytics.logEvent(
-          name: "pages_tracked",
-          parameters: {
-            "page_name" : pages[index],
-            "page_index" : index,
-          });
+  onTap(int index) async {
+
+    setState((){
       _currentIndex = index;
     });
+
+    await firebaseAnalytics.logEvent(
+        name: "pages_tracked",
+        parameters: {
+          "page_name" : pagesString[index],
+          "page_index" : index,
+        });
   }
+
+  List<String> pagesString = const [
+    "HomePage",
+    "ConsumptionPage",
+    "WorkoutPage",
+    "SettingsPage",
+    "ProfilePage",
+  ];
 
   List<Widget> pages = const [
     HomePage(),
