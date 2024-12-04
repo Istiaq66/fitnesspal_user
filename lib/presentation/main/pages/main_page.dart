@@ -1,4 +1,5 @@
 import 'package:curved_navigation_bar/curved_navigation_bar.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:fitnesspal_user/presentation/auth/providers/auth_provider.dart';
 import 'package:fitnesspal_user/presentation/settings/providers/settings_provider.dart';
 import 'package:flutter/material.dart';
@@ -28,9 +29,17 @@ class MainPage extends StatefulWidget {
 }
 
 class _MainPageState extends State<MainPage> {
-  var _currentIndex = 0;
-  ontap(int index) {
-    setState(() {
+  FirebaseAnalytics firebaseAnalytics = FirebaseAnalytics.instance;
+
+  int _currentIndex = 0;
+  onTap(int index) {
+    setState(() async {
+      await firebaseAnalytics.logEvent(
+          name: "pages_tracked",
+          parameters: {
+            "page_name" : pages[index],
+            "page_index" : index,
+          });
       _currentIndex = index;
     });
   }
@@ -67,6 +76,7 @@ class _MainPageState extends State<MainPage> {
   void initState() {
     super.initState();
     WidgetsBinding.instance.addPostFrameCallback((_) async {
+      firebaseAnalytics.setAnalyticsCollectionEnabled(true);
       final consumptionProvider =
           Provider.of<ConsumptionProvider>(context, listen: false);
       final workoutsProvider =
@@ -158,7 +168,7 @@ class _MainPageState extends State<MainPage> {
                 color: ColorManager.black87,
                 buttonBackgroundColor: Colors.transparent,
                 backgroundColor: ColorManager.darkGrey,
-                onTap: ontap,
+                onTap: onTap,
                 index: _currentIndex,
                 items: bottomNavItems,
               ),
