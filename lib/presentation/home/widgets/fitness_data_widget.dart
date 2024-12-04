@@ -130,7 +130,6 @@ class FitnessDataWidget extends StatelessWidget {
                               bottom: PaddingManager.p12.h,
                             ),
                             child: Container(
-                              height: SizeManager.s100.h,
                               width: (deviceWidth * (2 / 3) - 20).w,
                               decoration: BoxDecoration(
                                 color: ColorManager.limerGreen2,
