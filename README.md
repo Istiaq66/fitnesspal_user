@@ -8,9 +8,8 @@ FitnessPal is a comprehensive fitness tracking app that helps users monitor thei
 - **AI Diet Recommendations**: Get personalized meal plans based on activity.
 - **Gym Management**: Organize fitness sessions and track goals.
 
-## Screenshots
-![App Screenshot 1](image1.png)
-![App Screenshot 2](image2.png)
+![App Screenshot 1](1.png)
+![App Screenshot 2](2.png)
 
 ## Installation
 1. Clone the repository:
