@@ -7,15 +7,54 @@ FitnessPal is a comprehensive fitness tracking app that helps users monitor thei
 - **Workout & Calorie Tracking**: Log exercises and track calories burned.
 - **AI Diet Recommendations**: Get personalized meal plans based on activity.
 - **Gym Management**: Organize fitness sessions and track goals.
+- **Distance Calculation**: Computes the total distance traveled.
+- **AI Integration**: Uses **Gemini API** to provide tailored diet suggestions.
 
 ![App Screenshot 1](1.png)
 ![App Screenshot 2](2.png)
 
+## How It Works
+### Data Collection
+- Step count is tracked using the device’s **native pedometer sensor**.
+- Workouts are manually logged or auto-detected via sensors.
+- AI chatbot, powered by **Gemini API**, provides dietary recommendations.
+
+### Calorie Calculation
+- Steps → Calories Burned Formula: `Calories = Steps * 0.04 kcal`
+- Workouts → Calories Burned: Based on **duration & intensity** of exercise.
+
+### Backend Services
+- **Firebase** is used for authentication, real-time data synchronization, and user data management.
+- **AI-powered Gemini API** processes calorie data to generate personalized diet plans.
+
 ## Installation
 1. Clone the repository:
-2. Navigate to the project directory:
+   ```sh
+   git clone https://github.com/your-repo/FitnessPal.git
+   ```
+2. Navigate to the project folder:
+   ```sh
+   cd FitnessPal
+   ```
 3. Install dependencies:
+   ```sh
+   flutter pub get
+   ```
 4. Run the app:
+   ```sh
+   flutter run
+   ```
+
+## Technologies Used
+- **Flutter**: Frontend framework for UI design.
+- **Firebase**: Backend services for authentication & real-time data handling.
+- **ML Kit & Gemini API**: AI-based personalized diet recommendations.
+- **Sensors & Pedometer API**: For step and workout tracking.
+
+## Future Plans
+- Expand AI’s role in **workout recommendations**.
+- Introduce **fitness challenges** and social community features.
+- Add support for **multiple fitness goals** (muscle gain, endurance, etc.).
 
 ## License
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
