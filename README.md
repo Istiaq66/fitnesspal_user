@@ -5,10 +5,9 @@ FitnessPal is a comprehensive fitness tracking app that helps users monitor thei
 ## Key Features:
 - **Step Tracking**: Monitor daily steps with real-time progress visuals.
 - **Workout & Calorie Tracking**: Log exercises and track calories burned.
-- **AI Diet Recommendations**: Get personalized meal plans based on activity.
 - **Gym Management**: Organize fitness sessions and track goals.
 - **Distance Calculation**: Computes the total distance traveled.
-- **AI Integration**: Uses **Gemini API** to provide tailored diet suggestions.
+- **AI Integration**: Uses **Gemini API** chatbot for personalized dietary guidance.
 
 ![App Screenshot 1](1.png)
 ![App Screenshot 2](2.png)
@@ -48,7 +47,7 @@ FitnessPal is a comprehensive fitness tracking app that helps users monitor thei
 ## Technologies Used
 - **Flutter**: Frontend framework for UI design.
 - **Firebase**: Backend services for authentication & real-time data handling.
-- **ML Kit & Gemini API**: AI-based personalized diet recommendations.
+- **Gemini API**: AI-based personalized diet recommendations.
 - **Sensors & Pedometer API**: For step and workout tracking.
 
 ## Future Plans
